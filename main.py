@@ -27,6 +27,9 @@ if __name__=="__main__":
 #python -m venv venv para criar o ambiente virtual
 #  ativar o ambiente virtual
 
+#intalar todas as dependências do projeto utilizando o comando:
+#pip install -r requirements.txt
+
 # 
 # Desativar o ambiente virtual (quando terminar)
 # deactivate

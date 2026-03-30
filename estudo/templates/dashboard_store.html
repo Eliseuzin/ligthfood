@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel da Loja</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <h2 class="mb-4">Bem-vindo, {{ loja.nomedaloja }}!</h2>
+
+        <div class="card p-4 shadow">
+            <h4>Informações da Loja</h4>
+            <ul>
+                <li><strong>Responsável:</strong> {{ loja.nome }} {{ loja.sobrenome }}</li>
+                <li><strong>Email:</strong> {{ loja.email }}</li>
+                <li><strong>CNPJ:</strong> {{ loja.cnpj }}</li>
+            </ul>
+            <a class="btn btn-info" href="{{url_for('atualizar_cadastro_lojista')}}">Atualizar dados</a>
+
+            <hr>
+
+            <a href="{{url_for('produtos_lista')}}" class="btn btn-primary w-100">Gerenciar Produtos</a>
+            <br><br>
+            <a href="#" class="btn btn-success w-100">Ver Pedidos</a>
+            <br><br>
+            <a href="{{url_for('logout')}}" class="btn btn-danger w-100">Sair</a>
+        </div>
+    </div>
+
+</body>
+</html>

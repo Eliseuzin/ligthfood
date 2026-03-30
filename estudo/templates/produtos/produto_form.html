@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block base %}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">
+        {% if form.nome.data %}Editar Produto{% else %}Novo Produto{% endif %}
+    </h2>
+     <!-- sem enctype="multipart/form-data" o browser NÃO envia arquivos. -->
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+            {{ form.nome.label(class="form-label") }}
+            {{ form.nome(class="form-control", placeholder="Nome do produto") }}
+            {% for error in form.nome.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3">
+            {{ form.descricao.label(class="form-label") }}
+            {{ form.descricao(class="form-control", placeholder="Descrição do produto", rows="3") }}
+            {% for error in form.descricao.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3">
+            {{ form.preco.label(class="form-label") }}
+            {{ form.preco(class="form-control", placeholder="0.00") }}
+            {% for error in form.preco.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3">
+            {{ form.categoria.label(class="form-label") }}
+            {{ form.categoria(class="form-control", placeholder="Ex: Hambúrguer") }}
+            {% for error in form.categoria.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3">
+            {{ form.imagem.label(class="form-label") }}
+            {{ form.imagem(class="form-control") }}
+        </div>
+
+
+        <div class="form-check mb-3">
+            {{ form.ativo(class="form-check-input") }}
+            {{ form.ativo.label(class="form-check-label") }}
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">
+            Salvar
+        </button>
+
+        <a href="{{ url_for('produtos_lista') }}" class="btn btn-primary w-100 mt-2">
+            Voltar
+        </a>
+
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'base.html'%}
+{% block base %}
+<div class="text-center mt-4">
+    <a href="{{url_for('index')}}" class="btn btn-light"> Início</a>
+    <a href="{{ url_for('login') }}" class="btn btn-info">Voltar ao login</a>
+</div>
+{% endblock %}

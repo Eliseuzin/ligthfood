@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block base %}
+    <div>
+      {% include 'inicio.html'%}
+    </div>
+<div class="container bg-info p-4 rounded mt-4">
+<h3 class="mb-4">Cadastrar usuário</h3>
+<div class="mb-3">
+    <a href="{{url_for('cadastroloja')}}">Cadastrar loja</a>
+</div>
+
+<form action="" method="post" class="row mt-4">
+    {{form.hidden_tag()}}
+    <div class="col-md-6 mb-3">
+        {{form.nome.label(class="form-label")}}
+        {{form.nome(class="form-control")}}
+    </div>
+    <div class="col-md-6 mb-3">
+        {{form.sobrenome.label(class="form-label")}}
+        {{form.sobrenome(class="form-control")}}
+    </div>
+    <div class="col-md-6 mb-3">
+        {{form.endereco.label(class="form-label")}}
+        {{form.endereco(class="form-control")}}
+    </div>
+    <div class="col-md-6 mb-3">
+        {{form.complemento.label(class="form-label")}}
+        {{form.complemento(class="form-control")}}
+    </div>
+    <div class="col-md-6 mb-3">
+        {{form.email.label(class="form-label")}}
+        {{form.email(class="form-control")}}
+        {%for error in form.email.errors%}
+        <div class="alert alert-danger">{{error}}</div>
+        {%endfor%}
+    </div>
+    <div class="col-md-6 mb-3">
+        {{form.celular.label(class="form-label")}}
+        {{form.celular(class="form-control")}}
+    </div>
+    <div class="col-md-6 mb-3">
+        {{form.senha.label(class="form-label")}}
+        {{form.senha(class="form-control")}}
+    </div>
+    <div class="col-md-6 mb-3">
+        {{form.confirmarsenha.label(class="form-label")}}
+        {{form.confirmarsenha(class="form-control")}}
+        {%for error in form.confirmarsenha.errors%}
+        <div class="alert alert-danger">{{error}}</div>
+        {%endfor%}
+    </div>
+
+    <div class="col-md-6 mb-3">
+        {{form.btnSubmit(class="btn btn-outline-primary")}}
+
+    </div>
+</form>
+</div>
+
+{%endblock%}

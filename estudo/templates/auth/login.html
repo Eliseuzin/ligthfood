@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block base %}
+{% include 'back_inicio_cadastro.html' %}
+
+<div class="container bg-info rounded p-4 mt-4">
+
+    <!-- Mensagens Flash -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+                    {{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- SE LOJISTA ESTÁ LOGADO -->
+    {% if current_user.is_authenticated and hasattr(current_user, 'cnpj') %}
+        
+        <span class="btn btn-primary">
+            Loja: {{ current_user.nomedaloja }}
+        </span>
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Sair</a>
+
+    <!-- SE CLIENTE ESTÁ LOGADO -->
+    {% elif current_user.is_authenticated %}
+        
+        <span class="btn btn-primary">
+            Cliente: {{ current_user.nome }} {{ current_user.sobrenome }}
+        </span>
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Sair</a>
+
+    <!-- NINGUÉM LOGADO → MOSTRA FORMULÁRIO DO CLIENTE -->
+    {% else %}
+
+        <form action="" method="post" class="row mt-4">
+            <h5>Login cliente:</h5>
+            {{ form.hidden_tag() }}
+
+            <div class="col-md-6 mb-3">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control") }}
+                {% for error in form.email.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-6 mb-3">
+                {{ form.senha.label(class="form-label") }}
+                {{ form.senha(class="form-control") }}
+                {% for error in form.senha.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-6">{{ form.btnSubmit(class="btn btn-primary") }}</div>
+
+            <div class="mt-2">
+                Quero logar com minha loja:
+                <a href="{{ url_for('login_store') }}">Entrar</a>
+            </div>
+
+            <div class="mt-2">
+                Quero cadastrar usuário:
+                <a href="{{ url_for('cadastrousuario') }}">Cadastrar</a>
+            </div>
+
+            <div class="mt-2">
+                Quero cadastrar loja:
+                <a href="{{ url_for('cadastroloja') }}">Cadastrar</a>
+            </div>
+
+            <div class="mt-2">
+                Esqueci senha:
+                <a href="{{ url_for('recuperar_senha') }}">Redefinir senha</a>
+            </div>
+        </form>
+
+    {% endif %}
+
+</div>
+{% endblock %}

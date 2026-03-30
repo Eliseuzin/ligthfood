@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block base %}
+{% include 'back_inicio_cadastro.html' %}
+<!-- incluir navegaçao aqui -->
+ <div class="container bg-info rounded p-4 mt-4">
+    <!-- aqyu, recebera as mensagens de error -->
+     {% with messages= get_flashed_messages(with_categories=True)%}
+     {% if messages%}
+     {%for category, message in messages%}
+     <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     </div>
+     {%endfor%}
+     {%endif%}
+     {%endwith%}
+ <!-- para saber se tem usuário logado ou nao -->
+  {% if current_user.is_authenticated %}
+        <span class="btn btn-primary">{{current_user.nome}}{{current_user.sobrenome}}</span>
+        <a href="{{url_for('logout')}}" class="btn btn-danger">Sair</a>
+
+    {%else%}
+    <!-- formulario de login do cliente -->
+         <form action="" method="post" class="row mt-4">
+            <h5>Login cliente:</h5>
+            {{form.hidden_tag()}}
+            <!-- form.csrf_token podem ser a mesma coisaform.csrf_token podem ser a mesma -->
+
+            <div class="col-md-6 mb-3">
+                {{form.email.label(class="form-label")}}
+                {{form.email(class="form-control")}}
+
+                {%for error in form.email.errors%}
+                <div class="alert alert-danger">{{error}}</div>
+                {%endfor%}
+            </div>
+            <div class="col-md-6 mb-3">
+                {{form.senha.label(class="form-label")}}
+                {{form.senha(class="form-control")}}
+
+                {%for error in form.senha.errors%}
+                <div class="alert alert-danger">{{error}}</div>
+                {%endfor%}
+            </div>
+            <div class="col-md-6">{{form.btnSubmit(class="btn btn-primary")}}</div>
+            <div class="mt-2">Quero logar com minha loja: <a href="{{url_for('login_store')}}">Entrar</a> </div>
+            <div class="mt-2">Quero cadastrar usuário: <a href="{{url_for('cadastrousuario')}}">Cadastrar</a></div>
+            <div class="mt-2">Quero cadastrar loja: <a href="{{url_for('cadastroloja')}}">Cadastrar</a></div>
+            <div class="mt-2">Esqueci senha: <a href="{{url_for('recuperar_senha')}}">Redefinir senha</a></div>
+         </form>
+</div>
+
+
+    {%endif%}
+{%endblock%}

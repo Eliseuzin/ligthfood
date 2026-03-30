@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+{%block base%}
+{%include 'back_inicio_cadastro.html'%}
+<div class="container bg-info rounded p-4 mt-4">
+    {% if current_user.is_authenticated %}
+    
+    {# Usuário logado é loja #}
+    {% if hasattr(current_user, 'cnpj') %}
+        <div class="alert alert-info">
+            Você já está logado como loja: <strong>{{ current_user.nomedaloja }}</strong>.
+        </div>
+        <a class="btn btn-danger" href="{{ url_for('logout') }}">Sair</a>
+
+    {# Usuário logado é cliente #}
+    {% else %}
+        <div class="alert alert-warning">
+            Você já está logado como cliente.  
+            <a href="{{ url_for('logout') }}">Clique aqui para sair</a>  
+            para acessar sua loja.
+        </div>
+    {% endif %}
+
+{% else %}
+
+    {# Ninguém logado → mostra formulário da loja #}
+    <form method="POST" class="row mt-4">
+        {{ form.hidden_tag() }}
+
+        <h2>Login da Loja</h2>
+
+        <div class="col-md-6 mb-3">
+            {{ form.email.label }}
+            {{ form.email(class="form-control") }}
+            {% for error in form.email.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-6 mb-3">
+            {{ form.senha.label }}
+            {{ form.senha(class="form-control") }}
+            {% for error in form.senha.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-6">{{ form.btnSubmit(class="btn btn-primary") }}</div>
+
+    </form>
+
+{% endif %}
+
+</div>
+{%endblock%}

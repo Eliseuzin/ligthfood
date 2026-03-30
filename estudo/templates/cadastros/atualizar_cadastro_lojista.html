@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block base %}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Atualizar Cadastro da Loja</h2>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="row">
+
+            <!-- Nome -->
+            <div class="col-md-6 mb-3">
+                {{ form.nome.label(class="form-label") }}
+                {{ form.nome(class="form-control", placeholder="Seu nome") }}
+                {% for error in form.nome.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <!-- Sobrenome -->
+            <div class="col-md-6 mb-3">
+                {{ form.sobrenome.label(class="form-label") }}
+                {{ form.sobrenome(class="form-control", placeholder="Seu sobrenome") }}
+                {% for error in form.sobrenome.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <!-- Email -->
+            <div class="col-md-6 mb-3">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control", placeholder="email@exemplo.com") }}
+                {% for error in form.email.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <!-- Celular Principal da Loja -->
+            <div class="col-md-6 mb-3">
+                {{ form.celularp.label(class="form-label") }}
+                {{ form.celularp(class="form-control", placeholder="(00) 00000-0000") }}
+                {% for error in form.celularp.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <!-- Nome da Loja -->
+            <div class="col-md-6 mb-3">
+                {{ form.nomedaloja.label(class="form-label") }}
+                {{ form.nomedaloja(class="form-control", placeholder="Nome da sua loja") }}
+                {% for error in form.nomedaloja.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <!-- Ponto de Referência -->
+            <div class="col-md-6 mb-3">
+                {{ form.nextreferencia.label(class="form-label") }}
+                {{ form.nextreferencia(class="form-control", placeholder="Ponto de referência") }}
+                {% for error in form.nextreferencia.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-6 mb-3">
+                {{form.cnpj.label(class="form-label")}}
+                {{form.cnpj(class="form-control", placeholder="Cnpj novo")}}
+                {%for error in form.cnpj.erros%}
+                <div class="text-danger">{{ error }}</div>
+                {%endfor%}
+            </div>
+
+            <!-- Endereço da Loja -->
+            <div class="col-6 mb-3">
+                {{ form.endereco.label(class="form-label") }}
+                {{ form.endereco(class="form-control", placeholder="Endereço completo da loja") }}
+                {% for error in form.endereco.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <!-- Senha nova -->
+            <div class="col-md-6 mb-3">
+                {{ form.senha.label(class="form-label") }}
+                {{ form.senha(class="form-control", placeholder="Deixe vazio para não alterar") }}
+                {% for error in form.senha.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <!-- Confirmar senha -->
+            <div class="col-md-6 mb-3">
+                {{ form.confirmar_senha.label(class="form-label") }}
+                {{ form.confirmar_senha(class="form-control", placeholder="Repita a senha") }}
+                {% for error in form.confirmar_senha.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <!-- Botão -->
+        <button type="submit" class="btn btn-primary w-100 mt-3">Salvar alterações</button>
+        <!-- <button type="submit" class="btn btn-info w-100 mt-3"> Voltar</button> -->
+        <a href="{{url_for('dashboard_store')}}" class="btn btn-info w-100 mt-3">Voltar</a>
+
+    </form>
+</div>
+
+{% endblock %}

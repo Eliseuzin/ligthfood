@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste de Login</title>
+</head>
+<body>
+
+  <h1>Teste: Usuário Logado?</h1>
+
+  <!-- Passar variável do Flask para o JavaScript -->
+  <script>
+    const usuarioLogado = {{ current_user.is_authenticated | default(false) | tojson }};
+    console.log("Usuário logado?", usuarioLogado);
+  </script>
+
+  <!-- JS externo opcional -->
+  <script src="{{ url_for('static', filename='js/exemplo.js') }}"></script>
+
+</body>
+</html>

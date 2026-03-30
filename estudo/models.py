@@ -86,22 +86,48 @@ class Produto(db.Model):
 
 # fim do model para produtos crud
 
+
+
 #inicio do model para gerenciar os pedidos(status) de pagamentos
 # from datetime import datetime
 
-class Pedidos(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+# class Pedidos(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
 
-    loja_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+#     loja_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
-    cliente_nome = db.Column(db.String(120), nullable=False)
-    total = db.Column(db.Numeric(10,2), nullable=False)
+#     cliente_nome = db.Column(db.String(120), nullable=False)
+#     total = db.Column(db.Numeric(10,2), nullable=False)
 
-    status = db.Column(db.String(20), default='pendente')
-    criado_em = db.Column(db.DateTime, default=datetime.utcnow)
+#     status = db.Column(db.String(20), default='pendente')
+#     criado_em = db.Column(db.DateTime, default=datetime.utcnow)
 
 
 #fim do model para gerenciar os pedidos(status) de pagamentos
+
+
+
+
+
+from flask_sqlalchemy import SQLAlchemy
+
+
+class Pedidos(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    
+    cliente_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    cliente_nome = db.Column(db.String(100))
+    telefone = db.Column(db.String(20))
+    endereco = db.Column(db.String(200))
+
+    itens = db.Column(db.Text)
+    total = db.Column(db.Float)
+    status = db.Column(db.String(50))
+
+    loja_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
 
 
 #comando para criar o banco de dados

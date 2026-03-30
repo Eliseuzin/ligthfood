@@ -1,0 +1,21 @@
+<h1>Pedidos 🍔</h1>
+
+{% for pedido in pedidos %}
+    <div style="border:1px solid #000; margin:10px; padding:10px;">
+        
+        <h3>Pedido #{{ pedido.id }}</h3>
+        
+
+        <p><strong>Cliente:</strong> {{ pedido.cliente_nome }}</p>
+        
+        <p><strong>Total:</strong> R$ {{ pedido.total }}</p>
+        
+        <p><strong>Status:</strong> {{ pedido.status }}</p>
+
+        <p><strong>Endereço:</strong> {{ pedido.endereco }}</p>
+
+        <p><strong>Telefone:</strong> {{ pedido.telefone }}</p>
+
+
+    </div>
+{% endfor %}

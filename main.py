@@ -75,3 +75,11 @@ if __name__=="__main__":
 #git add requirements.txt
 #git commit -m "adicionando requirements.txt"
 #git push
+
+#instala automaticamente todas as bilbiotecas que o projeto precisa para rodar.
+#criar o arquivo requirements.txt com o comando:
+#pip freeze > requirements.txt 
+#pip install -r requirements.txt
+#flask db upgrade
+#mostar todas as bibliotecas instaladas no ambiente virtual
+#pip list

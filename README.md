@@ -86,8 +86,8 @@ Projeto desenvolvido para estudo e prática de desenvolvimento backend com Flask
 ## ▶ Como Executar o Projeto
 
 ```bash
-git clone https://github.com/Eliseuzin/fulldatehamburgueira
-cd fulldatehamburgueira
+git clone https://github.com/Eliseuzin/ligthfood
+cd ligthfood
 
 python -m venv venv
 venv\Scripts\activate  # Windows

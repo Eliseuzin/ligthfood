@@ -252,11 +252,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const celular = "31994174975";
 
        //abrir o whtasapp com a mensagem formatada
-      window.open(
-        `https://wa.me/${celular}?text=${mensagem}, ${Valortotal.textContent},// Nome: ${addressnome.value},// Endereço: ${Addressinput.value},// Celular: ${addressphone.value}`,
-        "_blank"
-      );
+      // window.open(
+      //   `https://wa.me/${celular}?text=${mensagem}, ${Valortotal.textContent},// Nome: ${addressnome.value},// Endereço: ${Addressinput.value},// Celular: ${addressphone.value}`,
+      //   "_blank"
+      // );
 
+
+      //este e o codigo que esta funcionando para enviar os dados para o whatsapp, mas quero mandar para o flask primeiro e depois redirecionar para o whatsapp, entao vou comentar esta parte e usar a parte do fetch para mandar os dados para o flask e depois abrir o whatsapp
       //iremos mandar os dados para o flask para criar o pedido e depois redirecionar para o whatsapp
       const wpp = window.open(
           `https://wa.me/${celular}?text=${mensagem}, ${Valortotal.textContent},// Nome: ${addressnome.value},// Endereço: ${Addressinput.value},// Celular: ${addressphone.value}`,
@@ -304,6 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //here finish the send date for flask
 
 
+       //quando add para enviar para o flask, posso comentar esta parte
         if (wpp) {
           // wpp foi aberta com sucesso
           listcar.length = 0;

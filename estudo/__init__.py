@@ -73,9 +73,16 @@ mail = Mail(app)
 #configurar o banco de dados
 #quando criamos o banco de dados, ele chamará database.db
 # app.config['SQLALCHEMY_DATABASE_URI']=os.getenv('DATABASE_URI')
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///database.db'
+import os
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+db_path = os.path.join(BASE_DIR, '..', 'database.db')  # raiz do projeto
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.abspath(db_path)}"
 #aumenta a prioridade, e evita o checking
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+
+print("DB REAL PATH:", os.path.abspath(db_path))
 #mais para frente aprenderemos a deixa o nosso banco de dados mais seguro, sem deixa chaves de acesso livres
 # app.config['SECRET_KEY']=os.getenv('SECRET_KEY')
 app.config['SECRET_KEY']='8a97b281fcaf00eaee650eb9078eded3d3c0656406f7d8b103191d1fb7f3ef18598a55ae52791310f2e96b716d17c78de9e1'
@@ -110,8 +117,7 @@ login_manager=LoginManager(app)
 # controle de login
 login_manager.login_view='login'
 
-# with app.app_context():
-#     db.create_all()
+
 
 # fazendo teste com o login de cliente e loja
 # significa que você está usando o Flask-Login, mas não definiu a função obrigatória user_loader — que é necessária para o login funcionar corretamente.
@@ -125,18 +131,22 @@ login_manager.login_view='login'
 
 @login_manager.user_loader
 def load_user(user_key):
-    # Se o cookie for antigo (ex: "1"), devolve None
-    if ":" not in user_key:
+    if not user_key:
         return None
 
-    tipo, user_id = user_key.split(":")
+    # formato novo: "tipo:id"
+    if ":" in user_key:
+        tipo, user_id = user_key.split(":")
 
-    if tipo == "user":
-        return User.query.get(int(user_id))
-    elif tipo == "store":
-        return Store.query.get(int(user_id))
-    
-    return None
+        if tipo == "user":
+            return User.query.get(int(user_id))
+        elif tipo == "store":
+            return Store.query.get(int(user_id))
+
+    # 🔥 fallback (caso seja só número antigo)
+    return User.query.get(int(user_key))
+
+
 
 # evitar da erros de O Jinja não aceita funções Python como hasattr.
 @app.context_processor
@@ -155,3 +165,22 @@ def inject_user_type():
 
 # importa as rotas
 from estudo import routes 
+
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+db_path = os.path.join(BASE_DIR, 'database.db')
+
+from estudo import models  # 🔥 importa tudo
+
+
+
+
+# with app.app_context():
+#     print("Criando tabelas agora...")
+#     db.create_all()
+
+# inspector = inspect(db.engine)
+# print("Tabelas criadas:", inspector.get_table_names())
+
+# with app.app_context():
+#     db.create_all()

@@ -471,51 +471,51 @@ def status_pedidos():
 
 #inicio das rotas para lojistas terem acesso aos status de pedidos
 
-from flask import request, jsonify
+# from flask import request, jsonify
 
-@app.route('/finalizar_pedido', methods=['POST'])
-@login_required
-def finalizar_pedido():
+# @app.route('/finalizar_pedido', methods=['POST'])
+# @login_required
+# def finalizar_pedido():
 
-    dados = request.get_json()
+#     dados = request.get_json()
 
-    nome = dados.get('nome')
-    telefone = dados.get('telefone')
-    endereco = dados.get('endereco')
-    total = float(dados.get('total'))
-    carrinho = dados.get('carrinho')
+#     nome = dados.get('nome')
+#     telefone = dados.get('telefone')
+#     endereco = dados.get('endereco')
+#     total = float(dados.get('total'))
+#     carrinho = dados.get('carrinho')
 
-    novo_pedido = Pedidos(
-        cliente_id=current_user.id,
-        cliente_nome=nome,
-        telefone=telefone,
-        endereco=endereco,
-        itens=str(carrinho),
-        total=total,
-        status='pendente',
-        loja_id=1
-    )
+#     novo_pedido = Pedidos(
+#         cliente_id=current_user.id,
+#         cliente_nome=nome,
+#         telefone=telefone,
+#         endereco=endereco,
+#         itens=str(carrinho),
+#         total=total,
+#         status='pendente',
+#         loja_id=1
+#     )
 
-    db.session.add(novo_pedido)
-    db.session.commit()
+#     db.session.add(novo_pedido)
+#     db.session.commit()
 
-    # 🔥 monta mensagem IGUAL você já fazia
-    itens_formatados = ""
-    for item in carrinho:
-        itens_formatados += f"{item['name']} (x{item['quantity']}) - R${item['price']} | "
+#     # 🔥 monta mensagem IGUAL você já fazia
+#     itens_formatados = ""
+#     for item in carrinho:
+#         itens_formatados += f"{item['name']} (x{item['quantity']}) - R${item['price']} | "
 
-    mensagem = f"""
-Pedido novo 🍔
-{itens_formatados}
+#     mensagem = f"""
+# Pedido novo 🍔
+# {itens_formatados}
 
-Total: R$ {total}
-Nome: {nome}
-Endereço: {endereco}
-Celular: {telefone}
-    """
+# Total: R$ {total}
+# Nome: {nome}
+# Endereço: {endereco}
+# Celular: {telefone}
+#     """
 
-    link = f"https://wa.me/31994174975?text={mensagem}"
+#     link = f"https://wa.me/31994174975?text={mensagem}"
 
-    return jsonify({"link": link})
+#     return jsonify({"link": link})
 
 #fim para lojistas terem acesso aos status de pedidos

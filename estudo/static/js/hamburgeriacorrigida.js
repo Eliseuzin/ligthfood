@@ -251,54 +251,55 @@ document.addEventListener("DOMContentLoaded", function () {
       const mensagem = encodeURIComponent(listcaritens);
       const celular = "31994174975";
 
-      // window.open(
-      //   `https://wa.me/${celular}?text=${mensagem}, ${Valortotal.textContent},// Nome: ${addressnome.value},// Endereço: ${Addressinput.value},// Celular: ${addressphone.value}`,
-      //   "_blank"
-      // );
+       //abrir o whtasapp com a mensagem formatada
+      window.open(
+        `https://wa.me/${celular}?text=${mensagem}, ${Valortotal.textContent},// Nome: ${addressnome.value},// Endereço: ${Addressinput.value},// Celular: ${addressphone.value}`,
+        "_blank"
+      );
 
       //iremos mandar os dados para o flask para criar o pedido e depois redirecionar para o whatsapp
-      // const wpp = window.open(
-      //     `https://wa.me/${celular}?text=${mensagem}, ${Valortotal.textContent},// Nome: ${addressnome.value},// Endereço: ${Addressinput.value},// Celular: ${addressphone.value}`,
-      //     "_blank"
-      //   );
+      const wpp = window.open(
+          `https://wa.me/${celular}?text=${mensagem}, ${Valortotal.textContent},// Nome: ${addressnome.value},// Endereço: ${Addressinput.value},// Celular: ${addressphone.value}`,
+          "_blank"
+        );
 
       // 🔥 ENVIA PARA O FLASK PRIMEIRO
-          fetch("/finalizar_pedido", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              nome: addressnome.value,
-              telefone: addressphone.value,
-              endereco: Addressinput.value,
-              total: Valortotal.textContent,
-              carrinho: listcar
-            })
-          })
-          .then(response => response.json())
-          .then(data => {
+          // fetch("/finalizar_pedido", {
+          //   method: "POST",
+          //   headers: {
+          //     "Content-Type": "application/json"
+          //   },
+          //   body: JSON.stringify({
+          //     nome: addressnome.value,
+          //     telefone: addressphone.value,
+          //     endereco: Addressinput.value,
+          //     total: Valortotal.textContent,
+          //     carrinho: listcar
+          //   })
+          // })
+          // .then(response => response.json())
+          // .then(data => {
 
-            // 🔥 AGORA abre o WhatsApp
-            const wpp = window.open(data.link, "_blank");
+          //   // 🔥 AGORA abre o WhatsApp
+          //   const wpp = window.open(data.link, "_blank");
 
-            if (wpp) {
-              listcar.length = 0;
-              updatecarrinho();
-            } else {
-              Toastify({
-                text: "⚠️ Pop-up bloqueado. Permita o navegador abrir o WhatsApp!",
-                duration: 4000,
-                gravity: "top",
-                position: "right",
-              }).showToast();
-            }
+          //   if (wpp) {
+          //     listcar.length = 0;
+          //     updatecarrinho();
+          //   } else {
+          //     Toastify({
+          //       text: "⚠️ Pop-up bloqueado. Permita o navegador abrir o WhatsApp!",
+          //       duration: 4000,
+          //       gravity: "top",
+          //       position: "right",
+          //     }).showToast();
+          //   }
 
-          })
-          .catch(err => {
-            console.error("Erro ao salvar pedido:", err);
-            alert("Erro ao finalizar pedido.");
-          });
+          // })
+          // .catch(err => {
+          //   console.error("Erro ao salvar pedido:", err);
+          //   alert("Erro ao finalizar pedido.");
+          // });
           
         //here finish the send date for flask
 

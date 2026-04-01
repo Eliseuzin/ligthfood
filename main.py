@@ -2,18 +2,13 @@ from estudo import app,db
 from estudo.utils import gerar_token, verificar_token, enviar_email
 from estudo.models import User  # importante importar os models
 
-
-# cria as tabelas antes de iniciar o servidor
-with app.app_context():
-    db.create_all()
+import estudo.models  
 
 
 #rodar o projeto, apenas quem estiver chamando main
 if __name__=="__main__":
   #sempre que acontecer uma mudança ele estará iniciando novamente
-  app.run(debug=True)
-  
-
+    app.run(debug=False)
 
 
 # 1️⃣ app.run() bloqueia a execução

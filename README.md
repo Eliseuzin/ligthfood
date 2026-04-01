@@ -1,4 +1,4 @@
-# fulldatehamburgueira
+# LigthFood
 
 # 🍔 Sistema Web de Gestão para Hamburgueria
 

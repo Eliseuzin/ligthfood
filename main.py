@@ -8,7 +8,7 @@ import estudo.models
 #rodar o projeto, apenas quem estiver chamando main
 if __name__=="__main__":
   #sempre que acontecer uma mudança ele estará iniciando novamente
-    app.run(debug=False)
+    app.run(debug=True)
 
 
 # 1️⃣ app.run() bloqueia a execução

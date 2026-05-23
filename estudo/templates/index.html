@@ -319,16 +319,16 @@
                           <p id="valortotal">Total:<span>0.00</span></p>
                           <!-- <p>Seu nome:</p> -->
                           <label for="address">Nome:</label>
-                          <input id="addressnome" type="text" placeholder="seu nome">
+                          <input id="addressnome" type="text" placeholder="seu nome" value="{{current_user.nome}}" required>
                           <p id="address-warnnome" >Um nome valido, por favor!!!</p><br>
 
                           <!-- <p>Endereço de entrega:</p> -->
                           <label for="address">Endereço de entrega:</label>
-                          <input id="address" type="text" placeholder="bl. e apt. caso necessário">
+                          <input id="address" type="text" placeholder="bl. e apt. caso necessário" value="{{current_user.endereco}}/ {{current_user.complemento}}">
                           <p id="address-warn" >O endereço está vazio!!</p><br>
                           
                           <label for="address">Celular: </label>
-                          <input id="addressphone" type="number" placeholder="seu numero!" >
+                          <input id="addressphone" type="number" placeholder="seu numero!" value="{{current_user.celular}}" >
                           <p id="address-warnphone" >Um numero valido, por favor!!!</p><br>
 
                           <div id="pagar">

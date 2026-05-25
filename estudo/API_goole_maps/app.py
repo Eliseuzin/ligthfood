@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 ENDERECO_LOJA = "R. Trinta e Sete, 81 - São Luiz, Ribeirão das Neves - MG, 33882-215"
  # Substitua por sua chave da API
-GOOGLE_API_KEY = "AIzaSyC_QWX_U3N3X5UcKWX1pYZ-13Xr4shYv0w" 
+GOOGLE_API_KEY = "" 
 #Distance Matrix API, temos que ativa ela no https://console.cloud.google.com e depois coloca nenhuma restricoes em APIs e serviços/credencias ou coloca autoriza Distance Matrix API, e devemos ativa routes APIs too
 
 

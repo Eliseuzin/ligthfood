@@ -63,6 +63,10 @@ app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER')
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['SECRET_KEY'] = 'sua_chave_secreta_aqui'
 
+# APIS PARA CALCULAR DISTANCIA COM GOOGLE MAPS E PARA DIRECIONAR PARA MERCADO PAGO
+#criando a chave secreta da api do google maps.
+GOOGLE_API_KEY=os.getenv('GOOGLE_MAPS_API_KEY')
+
 # Agora inicialize as extensões
 mail = Mail(app)
 # db = SQLAlchemy(app)

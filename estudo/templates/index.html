@@ -298,25 +298,11 @@
                     <div id="dentrodocarrinho">
                           <div id="subdentrodocarrinho">
                             <h2>Meu carrinho</h2>
+                            
+                           <!--E deu certo, Glória a Deus-->
 
-                        <div id="submeucarrinho" >
-                          <p id="valorfinal">Total:<span>0.00</span></p>
-                          <p>Endereço de entrega:</p>
-                          <input id="addresss" type="text" placeholder="digite seu endereço">
-                          <p id="address-warnn" style="visibility: hidden;">Por favor, digite seu endereço completo</p>
+                         <div id="subbottom">
 
-                          <div id="fimpedido">
-                            <button id="Fechar">Fechar</button>
-                            <button  id="Finalizar">Finalizar</button>
-                          </div>
-                        </div>
-                        <!-- inicio de outro teste-->
-
-                        <!--E deu certo, Glória a Deus-->
-
-                        <div id="subbottom">
-
-                          <p id="valortotal">Total:<span>0.00</span></p>
                           <!-- <p>Seu nome:</p> -->
                           <label for="address">Nome:</label>
                           <input id="addressnome" type="text" placeholder="seu nome" value="{{current_user.nome}}" required>
@@ -330,10 +316,27 @@
                           <label for="address">Celular: </label>
                           <input id="addressphone" type="number" placeholder="seu numero!" value="{{current_user.celular}}" >
                           <p id="address-warnphone" >Um numero valido, por favor!!!</p><br><br>
+
+
+                          <p id="valortotal">Total:<span>0.00</span></p>
+
                     
                           <div id="pagar">
                             <button id="pagarPedido">Pagar pedido</button>
                           </div>
+
+
+                          <div id="submeucarrinho" >
+                          <p id="valorfinal">Total:<span>0.00</span></p>
+                          <p>Endereço de entrega:</p>
+                          <input id="addresss" type="text" placeholder="digite seu endereço">
+                          <p id="address-warnn" style="visibility: hidden;">Por favor, digite seu endereço completo</p>
+
+                          <div id="fimpedido">
+                            <button id="Fechar">Fechar</button>
+                            <button  id="Finalizar">Finalizar</button>
+                          </div>
+                        </div>
 
 
                             <div id="status" data-usuario-logado="{{ current_user.is_authenticated | default(false) | tojson }}"></div>
@@ -363,6 +366,8 @@
                                       <!-- fim de outro teste-->
 
                         <!-- <div id="itensadd"></div> -->
+
+                        <!-- inicio de outro teste-->
 
                       </div>
                   </div>

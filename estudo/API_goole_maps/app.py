@@ -4,7 +4,6 @@ import os
 
 app = Flask(__name__)
 
-ENDERECO_LOJA = "R. Trinta e Sete, 81 - São Luiz, Ribeirão das Neves - MG, 33882-215"
  # Substitua por sua chave da API
 GOOGLE_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 #Distance Matrix API, temos que ativa ela no https://console.cloud.google.com e depois coloca nenhuma restricoes em APIs e serviços/credencias ou coloca autoriza Distance Matrix API, e devemos ativa routes APIs too
@@ -41,3 +40,16 @@ def calcular():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+@app.route("/calcular", methods=["POST"])
+def calcular():
+    try:
+        resultado = obter_distancia(request.json["endereco"])
+        return jsonify(resultado)
+
+    except Exception:
+        return jsonify({
+            "erro": "Não foi possível calcular a distância."
+        }), 400

@@ -65,7 +65,7 @@ app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER')
 
 # APIS PARA CALCULAR DISTANCIA COM GOOGLE MAPS E PARA DIRECIONAR PARA MERCADO PAGO
 #criando a chave secreta da api do google maps.
-GOOGLE_API_KEY=os.getenv('GOOGLE_MAPS_API_KEY')
+GOOGLE_MAPS_API_KEY=os.getenv('GOOGLE_MAPS_API_KEY')
 
 # Agora inicialize as extensões
 mail = Mail(app)

@@ -5,6 +5,7 @@ from flask import redirect,flash
 from flask_login import login_user, logout_user, current_user, login_required
 from estudo.forms import LoginForm, LoginStore
 from flask import session, request, jsonify
+from estudo.funcao_distancia import obter_distancia
 from estudo.models import ItemCarrinho, Carrinho
 
 #AGORA, IREMOS CRIAR OS PASSOS DE Pedir link de recuperação
@@ -519,3 +520,16 @@ Celular: {telefone}
     return jsonify({"link": link})
 
 #fim para lojistas terem acesso aos status de pedidos
+
+
+#criar rotas para calcular distância usando a API do Google Maps
+@app.route("/calcular_distancia", methods=["POST"])
+def calcular_distancia():
+    try:
+        resultado= obter_distancia(request.json["endereco"])
+        return jsonify(resultado)
+    except Exception:
+        return jsonify({
+            "erro": "Não foi possível calcular a distãncia."
+        }), 400
+        

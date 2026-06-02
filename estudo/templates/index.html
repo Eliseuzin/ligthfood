@@ -320,17 +320,17 @@
                           <!-- <p>Seu nome:</p> -->
                           <label for="address">Nome:</label>
                           <input id="addressnome" type="text" placeholder="seu nome" value="{{current_user.nome}}" required>
-                          <p id="address-warnnome" >Um nome valido, por favor!!!</p><br>
+                          <p id="address-warnnome" >Um nome valido, por favor!!!</p><br><br>
 
-                          <!-- <p>Endereço de entrega:</p> -->
-                          <label for="address">Endereço de entrega:</label>
+                          <!-- <p>Endereço de entrega e calcular taxa</p> -->
+                          <label for="address">Endereço:</label>
                           <input id="address" type="text" placeholder="bl. e apt. caso necessário" value="{{current_user.endereco}}/ {{current_user.complemento}}">
-                          <p id="address-warn" >O endereço está vazio!!</p><br>
+                          <p id="address-warn" >O endereço está vazio!!</p><br><br>
                           
                           <label for="address">Celular: </label>
                           <input id="addressphone" type="number" placeholder="seu numero!" value="{{current_user.celular}}" >
-                          <p id="address-warnphone" >Um numero valido, por favor!!!</p><br>
-
+                          <p id="address-warnphone" >Um numero valido, por favor!!!</p><br><br>
+                    
                           <div id="pagar">
                             <button id="pagarPedido">Pagar pedido</button>
                           </div>

@@ -526,7 +526,7 @@ Celular: {telefone}
 @app.route("/calcular_distancia", methods=["POST"])
 def calcular_distancia():
     try:
-        resultado= obter_distancia(request.json["endereco"])
+        resultado= obter_distancia(request.json["address"])
         return jsonify(resultado)
     except Exception:
         return jsonify({

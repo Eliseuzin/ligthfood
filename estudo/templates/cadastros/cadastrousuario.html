@@ -2,6 +2,7 @@
 {% block base %}
     <div>
       {% include 'inicio.html'%}
+      <script src="static/js/busca_cep.js"></script>
     </div>
 <div class="container bg-info p-4 rounded mt-4">
 <h3 class="mb-4">Cadastrar usuário</h3>
@@ -26,7 +27,29 @@
         {{form.endereco(class="form-control")}}
     </div>
     
-    <h2>Consultar CEP</h2>
+    <h5>Consultar CEP</h2>
+        <input type="text" id="cep" placeholder="Digite o CEP">
+        <button onclick="buscarCep()"> Buscar</button>
+        <br><br>
+
+    <label>Rua:</label>
+    <input type="text" name="" id="rua">
+    <br><br>
+
+    <label for="">Bairro:</label>
+    <input type="text" id="bairro">
+    <br><br>
+
+    <label for="">Cidade:</label>
+    <input type="" id="cidade">
+    <br><br>
+
+    <label for="">Estado:</label>
+    <input type="text" id="estado">
+    <br><br>
+
+
+
 
 
     <div class="col-md-6 mb-3">

@@ -54,7 +54,7 @@ def index():
 def returnbase():
     return render_template('index.html')
 
-
+#login para clientes
 @app.route('/login/', methods=["GET", "POST"])
 def login():
     form = LoginForm()
@@ -103,7 +103,7 @@ def login():
         return redirect(url_for('homepage'))
 
     return render_template('auth/login.html', form=form)
-
+#fim login para clientes
 
 #login para lojistas
 @app.route('/login_store/', methods=["GET", "POST"])
@@ -128,6 +128,7 @@ def dashboard_store():
 
     return render_template("dashboard_store.html", loja=current_user)
 
+#fim login para lojistas
 
 @app.route('/meu-carrinho', methods=['GET'])
 @login_required

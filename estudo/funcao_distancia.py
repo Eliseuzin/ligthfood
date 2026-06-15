@@ -49,6 +49,6 @@ def calcular_frete(distancia_metros):
 
     return round(10 + (excedente * 0.0016), 2)
 
-
+# o próximo passo era colocar estado e cidade do cliente, pois para calcular_frete com precisão
 
 

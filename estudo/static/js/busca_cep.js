@@ -1,4 +1,5 @@
-async function buscarCEP(){
+async function buscarCep(){
+    console.log("Função buscarCep executada");
     //Todos os caracteres que não são números foram removidos .replace(/\D/g,''). 
     const cep = document.getElementById("cep").value.replace(/\D/g,'');
     if (cep.length !==8){
@@ -12,7 +13,7 @@ async function buscarCEP(){
         // É como se o navegador perguntasse:
 
         // "ViaCEP, você pode me enviar os dados do CEP 33825470?"
-        const resposta = await fetch ('https://viacep.com.br/ws/${cep}/json/');
+        const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
         const dados = await resposta.json();
 
 
@@ -33,10 +34,11 @@ async function buscarCEP(){
             return;
         }
 
-        document.getElementById("rua").value = dados.logradouro;
-        document.getElementById("bairro").value = dados.bairro;
-        document.getElementById("cidade").value = dados.localidade;
-        document.getElementById("estado").value = dados.uf;
+        document.getElementById("endereco").value = dados.logradouro || '';
+        document.getElementById("rua").value = dados.logradouro || '';
+        document.getElementById("bairro").value = dados.bairro || '';
+        document.getElementById("cidade").value = dados.localidade || '';
+        document.getElementById("estado").value = dados.uf || '';
     
       
     } catch (erro){

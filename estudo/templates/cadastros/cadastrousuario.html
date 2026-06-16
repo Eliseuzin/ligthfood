@@ -2,7 +2,7 @@
 {% block base %}
     <div>
       {% include 'inicio.html'%}
-      <script src="static/js/busca_cep.js"></script>
+      <script src="{{ url_for('static', filename='js/busca_cep.js') }}"></script>
     </div>
 <div class="container bg-info p-4 rounded mt-4">
 <h3 class="mb-4">Cadastrar usuário</h3>
@@ -22,35 +22,33 @@
     </div>
     <!-- cadastrar endereço usando cep -->
 
-    <div class="col-md-6 mb-3">
-        {{form.endereco.label(class="form-label")}}
-        {{form.endereco(class="form-control")}}
+
+    <div class="col-12 mb-3">
+        <h5>Consultar CEP</h5>
+        <div class="input-group">
+            <input type="text" id="cep" class="form-control" placeholder="Digite o CEP">
+        </div>
+        <div>
+            <button type="button" onclick="buscarCep()" class="btn btn-outline-secondary">Buscar</button>
+        </div>
     </div>
-    
-    <h5>Consultar CEP</h2>
-        <input type="text" id="cep" placeholder="Digite o CEP">
-        <button type="button" onclick="buscarCep()"> Buscar</button>
-        <br><br>
 
-    <label>Rua:</label>
-    <input type="text" name="" id="rua">
-    <br><br>
-
-    <label for="">Bairro:</label>
-    <input type="text" id="bairro">
-    <br><br>
-
-    <label for="">Cidade:</label>
-    <input type="" id="cidade">
-    <br><br>
-
-    <label for="">Estado:</label>
-    <input type="text" id="estado">
-    <br><br>
-
-
-
-
+    <div class="col-md-6 mb-3">
+        <label class="form-label" for="rua" >Rua</label>
+        <input class="form-control" type="text" id="rua" name="Rua" readonly>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label" for="bairro">Bairro</label>
+        <input class="form-control" type="text" id="bairro" name="Bairro" readonly>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label" for="cidade">Cidade</label>
+        <input class="form-control" type="text" id="cidade" name="Cidade" readonly>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label" for="estado">Estado</label>
+        <input class="form-control" type="text" id="estado" name="Estado" readonly>
+    </div>
 
     <div class="col-md-6 mb-3">
         {{form.complemento.label(class="form-label")}}
@@ -87,3 +85,6 @@
 </div>
 
 {%endblock%}
+
+
+

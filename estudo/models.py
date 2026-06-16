@@ -13,15 +13,19 @@ from flask_login import UserMixin
 
 
 class User(db.Model,UserMixin):
-    #nullable=True, que dizer que o campo não pode ficar vazio
+    #nullable=True, que dizer que o campo pode ficar vazio
     id=db.Column(db.Integer,primary_key=True)
-    nome=db.Column(db.String, nullable=True)
-    endereco=db.Column(db.String, nullable=True)
-    complemento=db.Column(db.String, nullable=True)
-    celular=db.Column(db.Integer, nullable=True)
-    sobrenome=db.Column(db.String, nullable=True)
-    email=db.Column(db.String, nullable=True)
-    senha=db.Column(db.String, nullable=True)
+    nome=db.Column(db.String(100), nullable=False)
+    cep=db.Column(db.String(9), nullable=False)
+    rua=db.Column(db.String(100), nullable=False)
+    bairro=db.Column(db.String(50),nullable=False)
+    cidade=db.Column(db.String(50), nullable=False)
+    estado=db.Column(db.String(2), nullable=False)
+    complemento=db.Column(db.String, nullable=False)
+    celular=db.Column(db.String(20), nullable=False)
+    sobrenome=db.Column(db.String(50), nullable=False)
+    email=db.Column(db.String(100), nullable=False)
+    senha=db.Column(db.String(50), nullable=False)
 
 # evita da erro ao logo, pois o flask busca o id e sempre ira no pri meiro que encontar
     def get_id(self):
@@ -32,15 +36,19 @@ class User(db.Model,UserMixin):
  #inicio do controle de login loja
 class Store(db.Model,UserMixin):
     id=db.Column(db.Integer,primary_key=True)
-    nome=db.Column(db.String, nullable=True)
+    nome=db.Column(db.String, nullable=False)
     sobrenome=db.Column(db.String, nullable=True)
-    email=db.Column(db.String, nullable=True)
-    celularp=db.Column(db.Integer, nullable=True)
-    senha=db.Column(db.String, nullable=True)
-    cnpj=db.Column(db.Integer, nullable=True)
-    nomedaloja=db.Column(db.String, nullable=True)
+    email=db.Column(db.String, nullable=False)
+    celularp=db.Column(db.String(20), nullable=False)
+    senha=db.Column(db.String, nullable=False)
+    cnpj=db.Column(db.String(18), nullable=False)
+    nomedaloja=db.Column(db.String, nullable=False)
     nextreferencia=db.Column(db.String, nullable=True)
-    endereco=db.Column(db.String, nullable=True)
+    cep=db.Column(db.String(9), nullable=False)
+    rua=db.Column(db.String(100), nullable=False)
+    bairro=db.Column(db.String(50),nullable=False)
+    cidade=db.Column(db.String(50), nullable=False)
+    estado=db.Column(db.String(2), nullable=False)
     
 # evita da erro ao logo, pois o flask busca o id e sempre ira no pri meiro que encontar
     def get_id(self):
@@ -137,3 +145,5 @@ class Pedidos(db.Model):
 # para fazer roda as alteraçoes no banco de dados
 # flask db migrate -m "mensagem"
 # flask db upgrade
+
+#apagar banco del database.db

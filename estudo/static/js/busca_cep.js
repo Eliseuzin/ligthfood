@@ -34,7 +34,6 @@ async function buscarCep(){
             return;
         }
 
-        document.getElementById("endereco").value = dados.logradouro || '';
         document.getElementById("rua").value = dados.logradouro || '';
         document.getElementById("bairro").value = dados.bairro || '';
         document.getElementById("cidade").value = dados.localidade || '';

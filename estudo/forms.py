@@ -58,7 +58,11 @@ class UserForm(FlaskForm):
             sobrenome=self.sobrenome.data,
             email=self.email.data,
             senha=senha_hash,
-            endereco=self.endereco.data,
+            cep=self.cep.data,
+            rua=self.rua.data,
+            bairro=self.bairro.data,
+            cidade=self.cidade.data,
+            estado=self.estado.data,
             complemento=self.complemento.data,
             celular=self.celular.data,
 

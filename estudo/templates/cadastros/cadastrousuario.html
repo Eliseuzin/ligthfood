@@ -26,29 +26,35 @@
     <div class="col-12 mb-3">
         <h5>Consultar CEP</h5>
         <div class="input-group">
-            <input type="text" id="cep" class="form-control" placeholder="Digite o CEP">
+            {{ form.cep(class="form-control", id="cep", placeholder="Digite o CEP") }}
         </div>
         <br><br>
         <div>
             <button type="button" onclick="buscarCep()" class="btn btn-outline-secondary">Buscar</button>
         </div>
+        {% for error in form.cep.errors %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
     </div>
 
     <div class="col-md-6 mb-3">
-        <label class="form-label" for="rua" >Rua</label>
-        <input class="form-control" type="text" id="rua" name="Rua" readonly>
+        {{form.rua.label(class="form-label")}}
+        {{form.rua(class="form-control", id="rua")}}
     </div>
+
     <div class="col-md-6 mb-3">
-        <label class="form-label" for="bairro">Bairro</label>
-        <input class="form-control" type="text" id="bairro" name="Bairro" readonly>
+        {{form.bairro.label(class="form-label")}}
+        {{form.bairro(class="form-control", id="bairro")}}
     </div>
+
     <div class="col-md-6 mb-3">
-        <label class="form-label" for="cidade">Cidade</label>
-        <input class="form-control" type="text" id="cidade" name="Cidade" readonly>
+        {{form.cidade.label(class="form-label")}}
+        {{form.cidade(class="form-control", id="cidade")}}
     </div>
+
     <div class="col-md-6 mb-3">
-        <label class="form-label" for="estado">Estado</label>
-        <input class="form-control" type="text" id="estado" name="Estado" readonly>
+        {{form.estado.label(class="form-label")}}
+        {{form.estado(class="form-control", id="estado")}}
     </div>
 
     <div class="col-md-6 mb-3">

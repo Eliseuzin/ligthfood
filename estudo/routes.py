@@ -280,7 +280,7 @@ def atualizar_cadastro():
         current_user.nome = form.nome.data
         current_user.sobrenome = form.sobrenome.data
         current_user.email = form.email.data
-        current_user.endereco=form.endereco.data
+        # current_user.endereco=form.endereco.data
         current_user.complemento=form.complemento.data
         current_user.celular=form.celular.data
 
@@ -491,7 +491,7 @@ def finalizar_pedido():
         cliente_id=current_user.id,
         cliente_nome=nome,
         telefone=telefone,
-        endereco=endereco,
+        # endereco=endereco,
         itens=str(carrinho),
         total=total,
         status='pendente',
@@ -512,8 +512,7 @@ Pedido novo 🍔
 
 Total: R$ {total}
 Nome: {nome}
-Endereço: {endereco}
-Celular: {telefone}
+pytCelular: {telefone}
     """
 
     link = f"https://wa.me/31994174975?text={mensagem}"

@@ -106,7 +106,8 @@ class StoreForm(FlaskForm):
     
 
 #há necessidade de criar duas class, caso contrário a segunda subescreve a primeira
-#login clientes
+#inicio login clientes
+
 class LoginForm(FlaskForm):
     email=StringField('E-mail', validators=[DataRequired(),Email()])
     senha=PasswordField('Senha', validators=[DataRequired()])
@@ -128,7 +129,11 @@ class LoginForm(FlaskForm):
              return
         if not check_password_hash(user.senha,senha.data):
             raise ValidationError('Senha incorreta, por favor, verifique a senha digitada!')
-        #login lojista
+#fim login clientes
+
+
+#inicio login lojista
+
 class LoginStore(FlaskForm):
     email=StringField('E-mail da loja', validators=[DataRequired(),Email()])
     senha=PasswordField('Senha', validators=[DataRequired()])
@@ -151,13 +156,18 @@ class LoginStore(FlaskForm):
         if not check_password_hash(store.senha,senha.data):
             raise ValidationError('Senha incorreta, por favor, verifique a senha digitada!')
         
+#fim login lojista
 
+
+#inicio recuperar senha via email
 class PedidoRecuperacaoForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Enviar link de recuperação')
 
+#fim recuperar senha via email
 
 
+#incio redefinir senha
 
 class RedefinirSenhaForm(FlaskForm):
     senha = PasswordField('Nova senha', validators=[DataRequired()])
@@ -167,12 +177,14 @@ class RedefinirSenhaForm(FlaskForm):
     ])
     submit = SubmitField('Redefinir senha')
 
-#atualizar cadastro usuário
+#fim redefinir senha
+
+#inicio atualizar cadastro usuário
 class AtualizarUsuarioForm(FlaskForm):
-    nome = StringField('Nome::', validators=[DataRequired()])
+    nome = StringField('Nome:', validators=[DataRequired()])
     sobrenome = StringField('Sobrenome:', validators=[DataRequired()])
     email = StringField('Email:', validators=[DataRequired(), Email()])
-    endereco=StringField('Endereço:', validators=[DataRequired()])
+    # cep = StringField('Cep', validators=[DataRequired()])
     complemento=StringField('Complemento:', validators=[DataRequired()])
     celular=StringField('Celular:', validators=[DataRequired()])
     senha = PasswordField('Nova senha: (opcional)')
@@ -181,7 +193,9 @@ class AtualizarUsuarioForm(FlaskForm):
     ])
     submit = SubmitField('Atualizar')
 
-#atualizar cadastro lojista
+#fim atualizar cadastro usuário
+
+# inicio atualizar cadastro lojista
 class AtualizarLojistaForm(FlaskForm):
     nome=StringField('Nome pessoal:',validators=[DataRequired()])
     sobrenome=StringField('Sobrenome:', validators=[DataRequired()])
@@ -195,7 +209,10 @@ class AtualizarLojistaForm(FlaskForm):
     confirmar_senha=PasswordField('Confimar nova senha:', validators=[EqualTo('senha',message='As senhas devem ser iguais')])
     submit=SubmitField('Atualizar')
 
-# formulario de produtos para CRUD
+#fim inicio atualizar cadastro lojista
+
+
+#inicio formulario de produtos para CRUD
 
 # from flask_wtf import FlaskForm
 # from wtforms import StringField, TextAreaField, SubmitField

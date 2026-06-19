@@ -184,7 +184,7 @@ class AtualizarUsuarioForm(FlaskForm):
     nome = StringField('Nome:', validators=[DataRequired()])
     sobrenome = StringField('Sobrenome:', validators=[DataRequired()])
     email = StringField('Email:', validators=[DataRequired(), Email()])
-    # cep = StringField('Cep', validators=[DataRequired()])
+    cep = StringField('Cep', validators=[DataRequired()])
     complemento=StringField('Complemento:', validators=[DataRequired()])
     celular=StringField('Celular:', validators=[DataRequired()])
     senha = PasswordField('Nova senha: (opcional)')

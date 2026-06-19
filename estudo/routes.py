@@ -280,7 +280,6 @@ def atualizar_cadastro():
         current_user.nome = form.nome.data
         current_user.sobrenome = form.sobrenome.data
         current_user.email = form.email.data
-        # current_user.endereco=form.endereco.data
         current_user.complemento=form.complemento.data
         current_user.celular=form.celular.data
 
@@ -483,7 +482,6 @@ def finalizar_pedido():
 
     nome = dados.get('nome')
     telefone = dados.get('telefone')
-    endereco = dados.get('endereco')
     total = float(dados.get('total'))
     carrinho = dados.get('carrinho')
 
@@ -491,7 +489,6 @@ def finalizar_pedido():
         cliente_id=current_user.id,
         cliente_nome=nome,
         telefone=telefone,
-        # endereco=endereco,
         itens=str(carrinho),
         total=total,
         status='pendente',

@@ -268,7 +268,7 @@ def redefinir_senha(token):
     return render_template('cadastros/redefinir_senha.html', form=form)
 
 
-#atualizar cadastro
+#atualizar cadastro usuário
 
 @app.route('/atualizar_cadastro', methods=['GET', 'POST'])
 @login_required#server para impedir que alguém edite  os dados de outro usuário ou da loja sem está logado
@@ -280,6 +280,7 @@ def atualizar_cadastro():
         current_user.nome = form.nome.data
         current_user.sobrenome = form.sobrenome.data
         current_user.email = form.email.data
+        # current_user.cep = form.cep.data
         current_user.complemento=form.complemento.data
         current_user.celular=form.celular.data
 
@@ -293,6 +294,10 @@ def atualizar_cadastro():
 
     return render_template('cadastros/atualizar_cadastro.html', form=form)
 
+#fim do modulo atualizar cadastro usuário
+
+
+#inicio do modulo atualizar cadastro lojista
 @app.route('/atualizar_cadastro_lojista/', methods=['GET', 'POST'])
 @login_required#server para impedir que alguém edite  os dados de outro usuário ou da loja sem está logado
 def atualizar_cadastro_lojista():
@@ -317,6 +322,9 @@ def atualizar_cadastro_lojista():
         return redirect(url_for('dashboard_store'))
     
     return render_template('cadastros/atualizar_cadastro_lojista.html', form=form)
+
+#fim do modulo atualizar cadastro lojista
+
 
 
 # rotas para produtos CRUD

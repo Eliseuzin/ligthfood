@@ -280,7 +280,7 @@ def atualizar_cadastro():
         current_user.nome = form.nome.data
         current_user.sobrenome = form.sobrenome.data
         current_user.email = form.email.data
-        # current_user.cep = form.cep.data
+        current_user.cep = form.cep.data
         current_user.complemento=form.complemento.data
         current_user.celular=form.celular.data
 

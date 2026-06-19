@@ -20,12 +20,11 @@
       {{ form.email.label(class="form-label") }}
       {{ form.email(class="form-control") }}
     </div>
-
-    <!-- <div class="col-md-6 mb-5">
-      {{ form.cep.label(class="form-label") }}
-      {{ form.cep(class="form-control") }}
-    </div> -->
-
+     <!-- .... o erro estã aqui..... -->
+      <div class="col-md-6 mb-4">
+        {{form.cep.label(class="form-label")}}
+        {{form.cep(class="form-control")}}
+      </div>
     <div class="col-md-6 mb-4">
       {{form.complemento.label(class="form-label")}}
       {{form.complemento(class="form-control")}}

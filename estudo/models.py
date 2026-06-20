@@ -128,8 +128,6 @@ class Pedidos(db.Model):
 
     cliente_nome = db.Column(db.String(100))
     telefone = db.Column(db.String(20))
-    endereco = db.Column(db.String(200))
-
     itens = db.Column(db.Text)
     total = db.Column(db.Float)
     status = db.Column(db.String(50))

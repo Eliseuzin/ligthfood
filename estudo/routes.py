@@ -281,6 +281,10 @@ def atualizar_cadastro():
         current_user.sobrenome = form.sobrenome.data
         current_user.email = form.email.data
         current_user.cep = form.cep.data
+        current_user.rua = form.rua.data
+        current_user.bairro = form.bairro.data
+        current_user.cidade=form.cidade.data
+        current_user.estado=form.estado.data
         current_user.complemento=form.complemento.data
         current_user.celular=form.celular.data
 

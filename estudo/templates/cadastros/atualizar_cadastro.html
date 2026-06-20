@@ -23,7 +23,26 @@
      <!-- .... o erro estã aqui..... -->
       <div class="col-md-6 mb-4">
         {{form.cep.label(class="form-label")}}
-        {{form.cep(class="form-control")}}
+        {{form.cep(class="form-control", id="cep")}}
+      </div>
+      <div>
+         <button type="button" onclick="buscarCep()" class="btn btn-outline-info">Buscar Cep</button>
+      </div>
+      <div class="col-md-6 mb-4">
+        {{form.rua.label(class="form-label")}}
+        {{form.rua(class="form-control", id="rua")}}
+      </div>
+      <div class="col-md-6 mb-4">
+        {{form.bairro.label(class="form-label")}}
+        {{form.bairro(class="form-control", id="bairro")}}
+      </div>
+      <div class="col-md-6 mb-4">
+        {{form.cidade.label(class="form-label")}}
+        {{form.cidade(class="form-control", id="cidade")}}
+      </div>
+      <div class="col-md-6 mb-4">
+        {{form.estado.label(class="form-label")}}
+        {{form.estado(class="form-control", id="estado")}}
       </div>
     <div class="col-md-6 mb-4">
       {{form.complemento.label(class="form-label")}}

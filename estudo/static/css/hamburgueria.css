@@ -232,22 +232,52 @@ footer > button {
   display: flex;
   justify-content: space-between;
 } 
-
+/* inicio da perfomace do meu carrinho */
 #addresss {
-  padding: 7px;
+  padding: 2px;
   border-radius: 8px;
   margin: 0%;
 }
-#address {
-  padding: 5px;
+#addresscep{
+  padding: 2px;
+  border-radius: 8px;
+  margin: 0%;
+  margin-bottom: 1%;
+}
+#addressrua{
+  padding: 2px;
+  border-radius: 8px;
+  margin: 0%;
+  margin-bottom: 1%;
+}
+#addressbairro{
+  padding: 2px;
+  border-radius: 8px;
+  margin: 0%;
+  margin-bottom: 1%;
+}
+#addresscidade{ 
+  padding: 3px;
+  border-radius: 8px;
+  margin: 0%;
+  margin-bottom: 1%;
+}
+#addressestado{
+  padding: 3px;
+  border-radius: 8px;
+  margin:0%;
+  margin-bottom: 1%;
+}
+#addresscomplemento {
+  padding: 3px;
   border-radius: 8px;
 }
 #addressphone{
-  padding: 5px;
+  padding: 3px;
   border-radius: 8px;
 }
 #addressnome{
-  padding: 5px;
+  padding: 3px;
   border-radius: 8px;
 }
 
@@ -278,6 +308,8 @@ footer > button {
   /* visibility: hidden; */
   display: none;
 }
+
+/* fim da perfomace do meu carrinho */
 
 #Fechar {
   border-radius: 5px;

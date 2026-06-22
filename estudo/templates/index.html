@@ -294,6 +294,8 @@
                     </div>
                       <!--fim do menu-->
 
+                      <!-- inicio block meu carrinho quando eu click em meu carrinho -->
+
                         <!--inico do modal(dentro do meu carrinho)-->
                     <div id="dentrodocarrinho">
                           <div id="subdentrodocarrinho">
@@ -306,27 +308,48 @@
                           <!-- <p>Seu nome:</p> -->
                           <label for="address">Nome:</label>
                           <input id="addressnome" type="text" placeholder="seu nome" value="{{current_user.nome}}" required>
-                          <p id="address-warnnome" >Um nome valido, por favor!!!</p><br><br>
+                          <p id="address-warnnome" >Um nome valido, por favor!!!</p><br>
 
-                          <!-- <p>Endereço de entrega e calcular taxa</p> -->
-                          <label for="address">Endereço:</label>
-                          <input id="address" type="text" placeholder="bl. e apt. caso necessário" value="{{current_user.endereco}}/ {{current_user.complemento}}">
-                          <p id="address-warn" >O endereço está vazio!!</p><br><br>
+                          <!-- <p>Endereço de entrega preenchimento automatico e calcular taxa</p> -->
+                          <label for="Cep">Cep:</label>
+                          <input id="addresscep" type="text" placeholder="Digite seu cep." value="{{current_user.cep}}">  
+                          <p id="address-warn">O Cep está invalido!</p><br>
+
+                          <label for="">Rua</label>
+                          <input type="text" id="addressrua" placeholder="Digite sua rua" value="{{current_user.rua}}">
+                          <p id="address-warn">Não encontramos está rua :(</p><br>
+
+                          <label for="">Bairro</label>
+                          <input type="text" id="addressbairro" placeholder="Digite seu bairro." value="{{current_user.bairro}}">
+                          <p id="address-warn"></p><br>
+
+                          <label for="">Cidade</label>
+                          <input type="text" id="addresscidade" placeholder="Digite sua cidade" value="{{current_user.cidade}}">
+                          <p id="address-warn"></p><br>
+
+                          <label for="">Estado</label>
+                          <input type="text" id="addressestado" placeholder="Digite seu estado" value="{{current_user.estado}}">
+                          <p id="address-warn"></p><br>
+
+                          <label for="address">complemento:</label>
+                          <input id="addresscomplemento" type="text" placeholder="bl. e apt. caso necessário" value="{{current_user.endereco}}/ {{current_user.complemento}}">
+                          <p id="address-warn" >O endereço está vazio!!</p><br>
                           
+
                           <label for="address">Celular: </label>
                           <input id="addressphone" type="number" placeholder="seu numero!" value="{{current_user.celular}}" >
                           <p id="address-warnphone" >Um numero valido, por favor!!!</p><br><br>
 
-
+                           <!-- valor do pedido -->
                           <p id="valortotal">Total:<span>0.00</span></p>
 
+                          <!-- valor da taxa de entregar -->
                           <p id="taxaentrega">Taxa de entrega:<span>0.00</span></p>
 
                     
                           <div id="pagar">
                             <button id="pagarPedido">Pagar pedido</button>
                           </div>
-
 
                           <div id="submeucarrinho" >
                           <p id="valorfinal">Total:<span>0.00</span></p>
@@ -339,6 +362,8 @@
                             <button  id="Finalizar">Finalizar</button>
                           </div>
                         </div>
+                          <!-- fim block meu carrinho quando eu click em meu carrinho -->
+
 
 
                             <div id="status" data-usuario-logado="{{ current_user.is_authenticated | default(false) | tojson }}"></div>

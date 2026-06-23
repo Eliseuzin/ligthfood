@@ -5,6 +5,7 @@ const dentrodocarrinho = document.getElementById("dentrodocarrinho");
 const submeucarrinho = document.getElementById("submeucarrinho");
 const subdentrodocarrinho = document.getElementById("subdentrodocarrinho");
 const Valortotal = document.getElementById("valortotal");
+const Subtotal = document.getElementById("subtotal")
 const Fechar = document.getElementById("Fechar");
 const Finalizar = document.getElementById("Finalizar");
 const Quantidadecarinho = document.getElementById("quantidadecarinho");
@@ -101,10 +102,11 @@ fetch('/meu-carrinho')
 
 
 
-
+// inicio calcular subtotal e total 
 function updatecarrinho() {
   submeucarrinho.innerHTML = "";
-  let total = 0;
+  let subtotal = 0;
+  let total= 0;
 
   listcar.forEach((item) => {
     const incluirosprodutos = document.createElement("div");
@@ -117,17 +119,24 @@ function updatecarrinho() {
         <button class='removeritem' data-name="${item.name}">Remover</button>
       </div>`;
 
-    total += item.price * item.quantity;
+    subtotal += item.price * item.quantity;
     submeucarrinho.appendChild(incluirosprodutos);
   });
 
-  Valortotal.textContent = `Total a Pagar: ${total.toLocaleString("pt-BR", {
+  Subtotal.textContent = `Sub total: ${subtotal.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL"
   })}`;
+  total+=subtotal + 10;
+  Valortotal.textContent = `Total:${total.toLocaleString("pt-BR",{
+    style:"currency",
+    currency: "BRL"
+  })}`;
+
 
   Quantidadecarinho.textContent = listcar.length;
 }
+// fim calcular subtotal e total 
 
 submeucarrinho.addEventListener("click", (event) => {
   if (event.target.classList.contains("removeritem")) {

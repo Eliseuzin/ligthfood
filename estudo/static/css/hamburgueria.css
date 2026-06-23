@@ -238,49 +238,33 @@ footer > button {
   border-radius: 8px;
   margin: 0%;
 }
-#addresscep{
-  padding: 2px;
-  border-radius: 8px;
-  margin: 0%;
-  margin-bottom: 1%;
+#dadoscliente{
+  border: 2px dashed #000;
+  border-radius: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
-#addressrua{
-  padding: 2px;
-  border-radius: 8px;
-  margin: 0%;
-  margin-bottom: 1%;
+#endereco_entrega{
+  border: 2px dashed #000;
+  border-radius: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
-#addressbairro{
-  padding: 2px;
-  border-radius: 8px;
-  margin: 0%;
-  margin-bottom: 1%;
+/* inicio link para atualizar cadastro */
+#linkatualizarcadastro{
+  background: none;
+  color: #ffffff99;
+  font-size: 18px;
 }
-#addresscidade{ 
-  padding: 3px;
-  border-radius: 8px;
-  margin: 0%;
-  margin-bottom: 1%;
-}
-#addressestado{
-  padding: 3px;
-  border-radius: 8px;
-  margin:0%;
-  margin-bottom: 1%;
-}
-#addresscomplemento {
-  padding: 3px;
-  border-radius: 8px;
-}
-#addressphone{
-  padding: 3px;
-  border-radius: 8px;
-}
-#addressnome{
-  padding: 3px;
-  border-radius: 8px;
-}
+/* fim link para atualizar cadastro */
 
+#resumo{
+  margin-top: 1%;
+  border: 2px dashed #000;
+  border-radius: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
 #address-warn {
   /* color: rgb(36, 33, 33); */
   background-color: rgba(255, 0, 0, 0.404);
@@ -290,26 +274,11 @@ footer > button {
   /* visibility: hidden; */
   display: none;
 }
-#address-warnnome {
-  /* color: rgb(36, 33, 33); */
-  background-color: rgba(255, 0, 0, 0.404);
-  border-radius: 5px;
-  /* border: solid 2px red; */
-  padding: 2px;
-  /* visibility: hidden; */
-  display: none;
-}
-#address-warnphone {
-  /* color: rgb(36, 33, 33); */
-  background-color: rgba(255, 0, 0, 0.404);
-  border-radius: 5px;
-  /* border: solid 2px red; */
-  padding: 2px;
-  /* visibility: hidden; */
-  display: none;
-}
-
 /* fim da perfomace do meu carrinho */
+
+/* inicio resumo dos valores */
+
+/* fim resumo dos valores */
 
 #Fechar {
   border-radius: 5px;

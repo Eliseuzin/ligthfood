@@ -29,29 +29,35 @@ def calcular_distancia(endereco_cliente):
 
 
     try:
-        distancia= data['rows'][0]['elements'][0]['distance'][0]['text']
+        distancia= data['rows'][0]['elements'][0]['distance']['text']
         duracao= data['rows'][0]['elements'][0]['duration']['text']
         return jsonify({"distancia": distancia, "duracao": duracao})
     except:
         return jsonify({"erro": "Não foi possível calcular a distãncia."}),400
 
-def calcular_frete(distancia_metros):
-    if distancia_metros <= 2000:
-        return 6.00
-    elif distancia_metros <= 3000:
-        return 7.00
-    elif distancia_metros <= 4000:
-        return 8.00
-    elif distancia_metros <= 5000:
-        return 9.00
-    elif distancia_metros <= 6000:
-        return 10.00
-    elif distancia_metros <= 7000:
-        return 11.00
- 
-    excedente = distancia_metros - 7000
 
-    return round(10 + (excedente * 0.0016), 2)
+
+
+
+
+
+# def calcular_frete(distancia_metros):
+#     if distancia_metros <= 2000:
+#         return 6.00
+#     elif distancia_metros <= 3000:
+#         return 7.00
+#     elif distancia_metros <= 4000:
+#         return 8.00
+#     elif distancia_metros <= 5000:
+#         return 9.00
+#     elif distancia_metros <= 6000:
+#         return 10.00
+#     elif distancia_metros <= 7000:
+#         return 11.00
+ 
+#     excedente = distancia_metros - 7000
+
+#     return round(10 + (excedente * 0.0016), 2)
 
 # o próximo passo era colocar estado e cidade do cliente, pois para calcular_frete com precisão
 
@@ -98,6 +104,11 @@ def calcular_frete(distancia_metros):
 
 
 
+
+
+
+
+
 #  Ative o ambiente virtual
 #python -m venv venv para criar o ambiente virtual
 # No terminal, digite:
@@ -113,7 +124,7 @@ def calcular_frete(distancia_metros):
 
 # ENDERECO_LOJA = "R. Trinta e Sete, 81 - São Luiz, Ribeirão das Neves - MG, 33882-215"
 #  # Substitua por sua chave da API
-# GOOGLE_API_KEY = "AIzaSyAf2uo_ll9gYGLLq6lcoU5l3jVAkCWScyI" 
+# GOOGLE_API_KEY = "" 
 # #Distance Matrix API, temos que ativa ela no https://console.cloud.google.com e depois coloca nenhuma restricoes em APIs e serviços/credencias ou coloca autoriza Distance Matrix API, e devemos ativa routes APIs too
 
 # @app.route('/')

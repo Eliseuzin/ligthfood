@@ -535,7 +535,8 @@ pytCelular: {telefone}
 
 @app.route('/calcular_distancia', methods= ["POST"])
 def rota_calcular_distancia():
-    endereco = request.json.get('endereco')
+    print("Rota chamada")
+    endereco = current_user.rua
 
     return calcular_distancia(endereco)
 

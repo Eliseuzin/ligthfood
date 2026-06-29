@@ -120,7 +120,9 @@ login_manager=LoginManager(app)
 # bcrypt=Bcrypt(app)
 # controle de login
 login_manager.login_view='login'
-
+#personalizar mensagem de error para quem não estiver logado
+login_manager.login_message= "Por favor, faça login para acessar está página."
+login_manager.login_message_category="warning"
 
 
 # fazendo teste com o login de cliente e loja

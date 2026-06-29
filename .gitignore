@@ -11,6 +11,9 @@ __pycache__/
 *.pyo
 *.pyd
 
+#informacoes da nossa evolucao
+DESENVOLVIMENTO.md
+
 # Banco de dados SQLite
 *.db
 *.sqlite3

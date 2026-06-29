@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- acesso ao java calcular distanci -->
-    <script src="{{url_for('static', filename='js/calcular_distanci.js')}}"></script>
+    <script src="{{url_for('static', filename='js/calcular_distancia.js')}}"></script>
 
     <link rel="stylesheet" href="static/css/hamburgueria.css">
   </head>
@@ -301,6 +301,11 @@
 
                         <!--inico do modal(dentro do meu carrinho)-->
                     <div id="dentrodocarrinho">
+                      <script>
+                        document.addEventListener('DOMContentLoader', function(){
+                          calcular_distancia();
+                        });
+                      </script>
                           <div id="subdentrodocarrinho">
                             <h4>Meu carrinho</h2>
                             
@@ -318,6 +323,7 @@
                                 <p>{{current_user.rua}}</p>
                                 <p>{{current_user.bairro}}, {{current_user.cidade}} - {{current_user.estado}} </p>
                                 <p>{{current_user.cep}}</p>
+                                <p id="resultado"></p>
 
                                 <a id="linkatualizarcadastro" href="{{url_for('atualizar_cadastro')}}">Alterar endereço</a>
 

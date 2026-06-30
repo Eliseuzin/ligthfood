@@ -14,8 +14,7 @@
       src="https://kit.fontawesome.com/8dbc803407.js"
       crossorigin="anonymous"
     ></script>
-    <!-- acesso ao java calcular distanci -->
-    <script src="{{url_for('static', filename='js/calcular_distancia.js')}}"></script>
+
 
     <link rel="stylesheet" href="static/css/hamburgueria.css">
   </head>
@@ -323,7 +322,10 @@
                                 <p>{{current_user.rua}}</p>
                                 <p>{{current_user.bairro}}, {{current_user.cidade}} - {{current_user.estado}} </p>
                                 <p>{{current_user.cep}}</p>
+                                <button type="button" onclick="calculardistancia()">Calcular distancia</button>
                                 <p id="resultado"></p>
+                                  <!-- acesso ao java calcular distancia -->
+                                   <script src="{{url_for('static', filename='js/calcular_distancia.js')}}"></script> 
 
                                 <a id="linkatualizarcadastro" href="{{url_for('atualizar_cadastro')}}">Alterar endereço</a>
 

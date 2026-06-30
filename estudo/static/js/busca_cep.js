@@ -1,5 +1,7 @@
 async function buscarCep(){
     console.log("Função buscarCep executada");
+    console.log(document.getElementById("cep"))
+    console.log(document.getElementById("rua"))
     //Todos os caracteres que não são números foram removidos .replace(/\D/g,''). 
     const cep = document.getElementById("cep").value.replace(/\D/g,'');
     if (cep.length !==8){
@@ -42,7 +44,7 @@ async function buscarCep(){
       
     } catch (erro){
         console.error(erro);
-        alert("Erro ao consultar o CEP.")
+        alert("Erro ao consultar o CEP.");
     }
     
 

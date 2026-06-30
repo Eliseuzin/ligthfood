@@ -2,8 +2,15 @@
 {% block base %}
     <div>
       <!-- {%include 'inicio.html'%} -->
+       <!-- inicio fazer busca do cep -->
       <script src="{{url_for('static', filename='js/busca_cep.js')}}"></script>
+      <!-- fim fazer busca do cep -->
     </div>
+
+      <!-- inicio calcular distancia -->
+      <script src="{{url_for('static', filename='js/calcular_distancia.js')}}"></script>
+      <!-- fim calcular distancia -->
+       
 <!-- {% include 'back_inicio_cadastro.html' %} -->
 <div class="container mt-5" style="max-width: 500px;">
   <h3>Atualizar Cadastro</h3>

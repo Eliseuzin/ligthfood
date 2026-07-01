@@ -98,15 +98,12 @@ fetch('/meu-carrinho')
     console.log('Carrinho não carregado:', err.message);
   });
 
-
-
-
-
 // inicio calcular subtotal e total 
 function updatecarrinho() {
   submeucarrinho.innerHTML = "";
   let subtotal = 0;
   let total= 0;
+  let taxa=0;
 
   listcar.forEach((item) => {
     const incluirosprodutos = document.createElement("div");
@@ -127,6 +124,12 @@ function updatecarrinho() {
     style: "currency",
     currency: "BRL"
   })}`;
+  // taxa = calcular_frete(distancia_metros);
+  // TotalTaxa.textContent = `Taxa de entrega: ${taxa.toLocaleString("pt-BR", {
+  //   style: "currency",
+  //   currency: "BRL"
+  // })}`;
+
   total+=subtotal + 10;
   Valortotal.textContent = `Total:${total.toLocaleString("pt-BR",{
     style:"currency",

@@ -533,12 +533,12 @@ pytCelular: {telefone}
 
 # inicio criar rotas para calcular distância usando a API do Google Maps
 
-@app.route('/calcular_distancia', methods= ["POST"])
-def rota_calcular_distancia():
-    print("Rota chamada")
-    endereco = current_user.rua
+# @app.route('/calcular_distancia', methods= ["POST"])
+# def rota_calcular_distancia():
+#     print("Rota chamada")
+#     endereco = current_user.rua
 
-    return calcular_distancia(endereco)
+#     return calcular_distancia(endereco)
 
 #  fim criar rotas para calcular distância usando a API do Google Maps
 

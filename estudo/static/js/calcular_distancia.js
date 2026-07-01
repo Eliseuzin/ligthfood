@@ -12,11 +12,6 @@ async function calculardistancia(){
     console.log('resposta recebida');
 
     const data = await resposta.json();
-        console.log(`Distância calculada: ${data.distancia}`);
-    const distancia_km = parseFloat(data.distancia.replace('KM', ''));
-    const distancia_metros = distancia_km * 1000;
-        console.log(`Distância em metros: ${distancia_metros}`);
-
     const resultado = document.getElementById('resultado');
 
     if (resposta.ok){
@@ -26,8 +21,17 @@ async function calculardistancia(){
         resultado.innerText="Erro:" + (data.erro|| "Não foi possível calcular a distância.");
         return null;
     }
+        
+}
 
-    // transforma distancia em metros
+        // console.log(`Distância calculada: ${data.distancia}`);
+    // const distancia_km = parseFloat(data.distancia.replace('KM', ''));
+    // const distancia_metros = distancia_km * 1000;
+    //     console.log(`Distância em metros: ${distancia_metros}`);
+
+
+
+       // transforma distancia em metros
 
 
     // inicio calcular taxa de entrega 
@@ -52,6 +56,3 @@ async function calculardistancia(){
     // return round(10 + (excedente * 0.0016), 2)
     // }
     // fim  calcular taxa de entrega 
-        
-}
-

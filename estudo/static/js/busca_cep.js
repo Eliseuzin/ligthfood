@@ -1,7 +1,7 @@
 async function buscarCep(){
     console.log("Função buscarCep executada");
-    console.log(document.getElementById("cep"))
-    console.log(document.getElementById("rua"))
+    console.log(document.getElementById("cep"));
+    console.log(document.getElementById("rua"));
     //Todos os caracteres que não são números foram removidos .replace(/\D/g,''). 
     const cep = document.getElementById("cep").value.replace(/\D/g,'');
     if (cep.length !==8){

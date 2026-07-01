@@ -54,22 +54,3 @@ def calcular_distancia(endereco_cliente):
 #     return round(10 + (excedente * 0.0016), 2)
 
 # o próximo passo era colocar estado e cidade do cliente, pois para calcular_frete com precisão
-
-
-
-# <!DOCTYPE html>
-# <html lang="pt-BR">
-# <head>
-#   <meta charset="UTF-8">
-#   <title>Calculadora de Distância</title>
-# </head>
-# <body>
-
-
-#   <h2>Calcular distância até a loja</h2>
-#   <input type="text" id="endereco" placeholder="Digite seu endereço" />
-#   <button onclick="calcular()">Calcular</button>
-#   <p id="resultado"></p>
-
-# </body>
-# </html>

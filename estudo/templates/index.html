@@ -14,7 +14,9 @@
       src="https://kit.fontawesome.com/8dbc803407.js"
       crossorigin="anonymous"
     ></script>
-
+    <!-- inicio acesso calcular distancia -->
+    <script src="{{url_for('static', filename='js/calcular_distancia.js')}}"></script> 
+    <!-- fim acesso calcular distancia -->
 
     <link rel="stylesheet" href="static/css/hamburgueria.css">
   </head>
@@ -309,7 +311,6 @@
                             <h4>Meu carrinho</h2>
                             
                            <!--E deu certo, Glória a Deus-->
-
                            <div id="subbottom">
                                  <!-- inicio dados do cliente -->
                                 <h5 id="dadoscliente">Dados do Cliente</h5>
@@ -319,13 +320,21 @@
 
                                 <!-- <p>inicio endereço de entrega preenchimento automatico e calcular taxa</p> -->
                                 <h5 id="endereco_entrega">Endereço de Entrega</h5>
-                                <p>{{current_user.rua}}</p>
+                                <p id="rua">{{current_user.rua}}</p>
                                 <p>{{current_user.bairro}}, {{current_user.cidade}} - {{current_user.estado}} </p>
                                 <p>{{current_user.cep}}</p>
-                                <button type="button" onclick="calculardistancia()">Calcular distancia</button>
+                                <!-- inicio da funcao para calcular distancia automaticamente -->
+                                 {%if current_user.is_authenticated%}
+                                 <script>
+                                  document.addEventListener("DOMContentLoaded", function(){
+                                    calculardistancia();
+                                  })
+                                 </script>
+                                 {%endif%}
+                                 <!-- fim da funcao para calcular distancia automaticamente -->
                                 <p id="resultado"></p>
-                                  <!-- acesso ao java calcular distancia -->
-                                   <script src="{{url_for('static', filename='js/calcular_distancia.js')}}"></script> 
+
+
 
                                 <a id="linkatualizarcadastro" href="{{url_for('atualizar_cadastro')}}">Alterar endereço</a>
 

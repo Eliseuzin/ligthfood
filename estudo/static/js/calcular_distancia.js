@@ -1,5 +1,5 @@
 async function calculardistancia(){
-    // console.log('Funcao chamada');
+    console.log('Funcao chamada');
     // console.log(document.getElementById("rua"))
     const endereco_rua_cliente = document.getElementById("rua").value;
     const resposta = await fetch ("/calcular_distancia",{
@@ -21,13 +21,15 @@ async function calculardistancia(){
         resultado.innerText="Erro:" + (data.erro|| "Não foi possível calcular a distância.");
         return null;
     }
+
+    // console.log(`Distância calculada: ${data.distancia}`);
+    // const distancia_km = parseFloat(data.distancia.replace('KM', ''));
+    // const distancia_metros = distancia_km * 1000;
+    // console.log(`Distância em metros: ${distancia_metros}`);
         
 }
 
-        // console.log(`Distância calculada: ${data.distancia}`);
-    // const distancia_km = parseFloat(data.distancia.replace('KM', ''));
-    // const distancia_metros = distancia_km * 1000;
-    //     console.log(`Distância em metros: ${distancia_metros}`);
+
 
 
 

@@ -28,8 +28,9 @@ def calcular_distancia(endereco_cliente):
 
     try:
         distancia= data['rows'][0]['elements'][0]['distance']['text']
+        distancia_metros=data['rows'][0]['elements'][0]['distance']['value']
         duracao= data['rows'][0]['elements'][0]['duration']['text']
-        return jsonify({"distancia": distancia, "duracao": duracao})
+        return jsonify({"distancia": distancia, "distancia_metros": distancia_metros, "duracao": duracao})
     except:
         return jsonify({"erro": "Não foi possível calcular a distãncia."
                         }),400

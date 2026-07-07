@@ -56,8 +56,7 @@ function addinmycar(name, price) {
   } else {
     listcar.push({ name, price, quantity: 1 });
   }
-
-  updatecarrinho();
+  EsperarDistancia()
   subbottom.style.display = "block";
 
   // Envia para o backend Flask
@@ -90,13 +89,25 @@ fetch('/meu-carrinho')
   .then(data => {
     if (Array.isArray(data)) {
       listcar = data; // <- substitui o carrinho local
-      updatecarrinho();
+      EsperarDistancia()
       subbottom.style.display = "block";
     }
   })
   .catch(err => {
     console.log('Carrinho não carregado:', err.message);
   });
+
+
+
+// inicio esperar carregar distancia para depois atualizar carrinho
+async function EsperarDistancia() {
+   await calculardistancia();
+   updatecarrinho();
+   console.log(`valor em metros vindo de calcular_distancia: ${distancia_taxa_metros}`);
+
+}
+// fim esperar carregar distancia para depois atualizar carrinho
+
 
 // inicio calcular subtotal e total 
 function updatecarrinho() {
@@ -156,7 +167,7 @@ function removeritens(name) {
     } else {
       listcar.splice(index, 1);
     }
-    updatecarrinho();
+    EsperarDistancia()
   }
 }
 
@@ -322,7 +333,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (wpp) {
           // wpp foi aberta com sucesso
           listcar.length = 0;
-          updatecarrinho();
+          EsperarDistancia()
         } else {
           //  Pop-up foi bloqueado
           Toastify({

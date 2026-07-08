@@ -6,6 +6,7 @@ const submeucarrinho = document.getElementById("submeucarrinho");
 const subdentrodocarrinho = document.getElementById("subdentrodocarrinho");
 const Valortotal = document.getElementById("valortotal");
 const Subtotal = document.getElementById("subtotal")
+const TotalTaxa =  document.getElementById("taxaentrega")
 const Fechar = document.getElementById("Fechar");
 const Finalizar = document.getElementById("Finalizar");
 const Quantidadecarinho = document.getElementById("quantidadecarinho");
@@ -103,7 +104,7 @@ fetch('/meu-carrinho')
 async function EsperarDistancia() {
    await calculardistancia();
    updatecarrinho();
-   console.log(`valor em metros vindo de calcular_distancia: ${distancia_taxa_metros}`);
+  //  console.log(`valor em metros vindo de calcular_distancia: ${distancia_taxa_metros}`);
 
 }
 // fim esperar carregar distancia para depois atualizar carrinho
@@ -131,17 +132,44 @@ function updatecarrinho() {
     submeucarrinho.appendChild(incluirosprodutos);
   });
 
+
   Subtotal.textContent = `Sub total: ${subtotal.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL"
   })}`;
-  // taxa = calcular_frete(distancia_metros);
-  // TotalTaxa.textContent = `Taxa de entrega: ${taxa.toLocaleString("pt-BR", {
-  //   style: "currency",
-  //   currency: "BRL"
-  // })}`;
 
-  total+=subtotal + 10;
+  //inicio calcular taxa de entrega 
+  function calcular_frete(distancia_taxa_metros) {
+  if (distancia_taxa_metros <= 2000) {
+      return 6.00;
+  } else if (distancia_taxa_metros <= 3000) {
+      return 7.00;
+  } else if (distancia_taxa_metros <= 4000) { 
+      return 8.00;
+  }
+  else if (distancia_taxa_metros <= 5000){
+      return 9.00;
+  }
+  else if (distancia_taxa_metros <= 6000){
+      return 10.00;
+  }
+  else if  (distancia_taxa_metros <= 7000){
+      return 11.00;
+  }
+  const excedente = distancia_taxa_metros - 7000;
+  return Number((11 + (excedente * 0.0016)).toFixed (2));
+  }
+  // console.log("Distância:", distancia_taxa_metros);
+  taxa= calcular_frete(distancia_taxa_metros);
+  // console.log("Taxa:", calcular_frete(distancia_metros));
+  TotalTaxa.textContent = `Taxa de entrega: ${taxa.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  })}`;
+
+  //fim  calcular taxa de entrega 
+
+  total+=subtotal + taxa ;
   Valortotal.textContent = `Total:${total.toLocaleString("pt-BR",{
     style:"currency",
     currency: "BRL"

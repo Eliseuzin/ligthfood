@@ -10,11 +10,11 @@ async function calculardistancia(){
             endereco_rua_cliente:endereco_rua_cliente
         })
     });
-    console.log('resposta recebida');
+    // console.log('resposta recebida');
 
 
     const data = await resposta.json();
-    console.log(`Distancia em metros: ${data.distancia_metros}`);
+    // console.log(`Distancia em metros: ${data.distancia_metros}`);
 
     distancia_taxa_metros=data.distancia_metros;
     // console.log(`distancia de 0 para a distacia correta ${distancia_taxa_metros}`)

@@ -1,5 +1,10 @@
-let distancia_taxa_metros=9;
+let distancia_taxa_metros=null;
 async function calculardistancia(){
+    // para evitar repetidas chamadas á APIs
+    if(distancia_taxa_metros!==null){
+        return distancia_taxa_metros;
+    }
+
     // console.log('Funcao chamada');
     // console.log(document.getElementById("rua"))
     const endereco_rua_cliente = document.getElementById("rua").value;

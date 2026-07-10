@@ -158,7 +158,8 @@ footer {
   width: 100%;
   position: fixed;
   bottom: 0px;
-  z-index: 40;
+  left: 0%;
+  z-index: 999;
 }
 
 footer > button {
@@ -184,7 +185,7 @@ footer > button {
   width: 100%;
   min-width: 320px;
   height: 100%;
-  display: none;
+  /* display: none; */
 }
 
 #subdentrodocarrinho {

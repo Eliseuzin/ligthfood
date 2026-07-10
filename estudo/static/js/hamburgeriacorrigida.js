@@ -18,7 +18,7 @@ const Addresswarninputnome = document.getElementById("address-warnnome");
 const Addresswarninputphone = document.getElementById("address-warnphone");
 const itensaddnocarrinho = document.getElementById("itensadd");
 const subbottom = document.getElementById("subbottom");
-const out = document.getElementById("out");
+const Out = document.getElementById("out");
 const Finish = document.getElementById("Finish");
 
 let listcar = [];
@@ -36,7 +36,7 @@ dentrodocarrinho.addEventListener("click", (event) => {
 });
 
 subbottom.addEventListener("click", (event) => {
-  if (event.target === out) {
+  if (event.target === Fechar) {
     dentrodocarrinho.style.display = "none";
   }
 });

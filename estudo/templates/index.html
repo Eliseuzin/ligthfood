@@ -13,6 +13,10 @@
             src="https://kit.fontawesome.com/8dbc803407.js"
             crossorigin="anonymous"
             ></script>
+            <script src="{{ url_for('static', filename='js/hamburgeriacorrigida.js') }}"></script>
+           <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
             <!-- inicio acesso calcular distancia -->
             <script src="{{url_for('static', filename='js/calcular_distancia.js')}}"></script> 
             <!-- fim acesso calcular distancia -->
@@ -422,22 +426,6 @@
                     <!-- inicio rodape do carrinho -->
                     <div id="rodape-carrinho">
                 
-                            <p id="valorfinal">
-                                Total:
-                                <span>0.00</span>
-                            </p>
-                        
-                            <p>Endereço de entrega:</p>
-                
-                          <input
-                              id="addresss"
-                              type="text"
-                              placeholder="digite seu endereço">
-                      
-                          <p id="address-warnn" style="visibility:hidden;">
-                              Por favor, digite seu endereço completo
-                          </p>
-                
                         <div id="fimpedido">
                     
                             <button id="Fechar" type="button">
@@ -452,8 +440,6 @@
                     
                     </div>
                     <!-- fim rodape do carrinho -->
-                
-                
                     <div
                     id="status"
                     data-usuario-logado="{{ current_user.is_authenticated | default(false) | tojson }}">
@@ -493,5 +479,28 @@
             <!-- fim do modal(dentro do meu carrinho) -->
             
             <!-- fim block meu carrinho quando eu click em meu carrinho -->
+
+              <!-- <script>
+                const usuarioLogado = {{ (current_user.is_authenticated | default(false)) | tojson }};
+                console.log("Usuário logado?", usuarioLogado);
+              </script> -->
+              <!-- <div id="status" data-usuario-logado="{{ current_user.is_authenticated | default(false) | tojson }}">
+              </div> -->
+    
+              <!-- Property assignment expected -->
+                <!-- // const usuarioLogado = {{ true | tojson }}; -->
+
+              <!-- <script src="static/js/hamburgeriacorrigida.js"></script> -->
+              <!-- <script src="static/js/hamburgueria.js"></script> -->
+               <!-- “Eu gostei disso desde o começo.” 02/02/2026 Eliseu Matos da Silva -->
+                          <!-- inicio do veja meu carrinho -->
+      <footer>
+        <button id="meucarrinho">
+          (<span id="quantidadecarinho">0</span>)
+          Veja meu carrinho
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+      </footer>
+      <!-- fim do veja meu carrinho -->
     </body>
 </html>

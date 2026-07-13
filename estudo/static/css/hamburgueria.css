@@ -185,17 +185,15 @@ footer > button {
   width: 100%;
   min-width: 320px;
   height: 100%;
-  /* display: none; */
+  display: none;
 }
 
 #subdentrodocarrinho {
-  display: flex;
-  flex-direction: column;
-  height: 90vh;
   color: aliceblue;
   background-color: #ffffff1c;
   padding: 10px;
   width: 90%;
+  height: 90%;
   max-width: 450px;
   border-radius: 20px;
   border: solid 2px rgba(255, 0, 0, 0.363);
@@ -204,11 +202,9 @@ footer > button {
 
 #submeucarrinho {
   display: inline-block;
-  flex: 1;
-  overflow-y: auto;
   justify-content: space-between;
   font-style: bold;
-  /* display: none; */
+  display: none;
 }
 #rodape-carrinho{
   border-top: 1px solid #555;

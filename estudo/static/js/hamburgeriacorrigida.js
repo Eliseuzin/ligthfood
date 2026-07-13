@@ -1,6 +1,7 @@
 // Seletores principais do DOM
 const Menugeral = document.getElementById("menu");
 const Meucarrinho = document.getElementById("meucarrinho");
+const RodapeFinalizarPedido = document.getElementById("rodape-carrinho")
 const dentrodocarrinho = document.getElementById("dentrodocarrinho");
 const submeucarrinho = document.getElementById("submeucarrinho");
 const subdentrodocarrinho = document.getElementById("subdentrodocarrinho");
@@ -22,7 +23,8 @@ const Out = document.getElementById("out");
 const Finish = document.getElementById("Finish");
 
 let listcar = [];
-subbottom.style.display = "none";
+// isto não existe mais, pois estou removendo o bug de ter dois carrinho.
+// subbottom.style.display = "none";
 
 // Eventos para abrir/fechar carrinho
 Meucarrinho.addEventListener("click", () => {
@@ -34,12 +36,12 @@ dentrodocarrinho.addEventListener("click", (event) => {
     dentrodocarrinho.style.display = "none";
   }
 });
-
-subbottom.addEventListener("click", (event) => {
-  if (event.target === Fechar) {
-    dentrodocarrinho.style.display = "none";
-  }
-});
+// isto não existe mais, pois estou removendo o bug de ter dois carrinho.
+// subbottom.addEventListener("click", (event) => {
+//   if (event.target === Fechar) {
+//     dentrodocarrinho.style.display = "none";
+//   }
+// });
 
 // Adicionar item ao carrinho
 Menugeral.addEventListener("click", (event) => {

@@ -185,7 +185,7 @@ footer > button {
   width: 100%;
   min-width: 320px;
   height: 100%;
-  display: none;
+  /* display: none; */
 }
 
 #subdentrodocarrinho {
@@ -198,13 +198,14 @@ footer > button {
   border-radius: 20px;
   border: solid 2px rgba(255, 0, 0, 0.363);
   /* min-width: 200px; */
+  /* display: none; */
 }
 
 #submeucarrinho {
   display: inline-block;
   justify-content: space-between;
   font-style: bold;
-  display: none;
+  /* display: none; */
 }
 #rodape-carrinho{
   border-top: 1px solid #555;
@@ -284,8 +285,8 @@ footer > button {
 /* inicio resumo dos valores */
 
 /* fim resumo dos valores */
-
-#Fechar {
+/* inicio do estilo step1 */
+#fecharstep1 {
   border-radius: 5px;
   padding: 5px;
   font-family: "Courier New", "Courier", "monospace";
@@ -293,18 +294,26 @@ footer > button {
   color: #ffffff99;
 }
 
-#Finalizar {
+#continuar-step1 {
   border-radius: 5px;
   padding: 5px;
   font-family: "Courier New", "Courier", "monospace";
   background-color: rgba(24, 104, 24, 0.616);
   color: #ffffff99;
 }
+#fim-step-carrinho{
+  display: flex;
+  justify-content: space-between;
+}
 
 #fimpedido {
   display: flex;
   justify-content: space-between;
 }
+
+/* fim do estilo step1 */
+
+
 /* #error {
   text-align: center;
   color: #ff0000;

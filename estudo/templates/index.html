@@ -13,14 +13,6 @@
             src="https://kit.fontawesome.com/8dbc803407.js"
             crossorigin="anonymous"
             ></script>
-            <script src="{{ url_for('static', filename='js/hamburgeriacorrigida.js') }}"></script>
-           <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
-
-            <!-- inicio acesso calcular distancia -->
-            <script src="{{url_for('static', filename='js/calcular_distancia.js')}}"></script> 
-            <!-- fim acesso calcular distancia -->
-
             <link rel="stylesheet" href="static/css/hamburgueria.css">
 
 </head>
@@ -316,125 +308,162 @@
                     });
                 </script>
                 
-                <div id="subdentrodocarrinho">
-                
+                <div id="subdentrodocarrinho">                
                     <h4>Meu carrinho</h4>
+                    <!-- barra de progresso do meu carrinho -->
+                     <div id="steps">
+                      <div class="step-ativo">
+                        <span>1</span>
+                        <p>Carrinho</p>
+                      </div>
+                     </div>
+
+                     <div class="step">
+                      <span>2</span>
+                      <p>Entrega</p>
+                     </div>
+
+                     <div class="step">
+                      <span>3</span>
+                      <p>Resumo</p>
+                     </div>
+                     <!-- inicio passo 1 -->
+                      <div id="step-carrinho">
+                          <!-- inicio lista de produtos -->
+                          <div id="submeucarrinho">
+                          <!-- produtos add pelo java script -->
+                      
+                          </div>
+                          <!-- fim lista de produtos -->
+                           <!-- resumo -->
+                              <p id="subtotal">
+                                  Subtotal:
+                                  <span>0.00</span>
+                              </p>
+                            <div id="fim-step-carrinho">
+                              <button type="button" id="fecharstep1">Fechar</button>
+                              <button type="button" id="continuar-step1">Continuar</button>
+                            </div>
+
+                      </div>
+                      <!-- fim passo 1 -->
+                        
+                      <!-- inicio passo 2 -->
+                      <div id="step-entrega" style="display: none;">
+                        <!-- inicio dados do cliente + endereço de entrega -->
+                          <div id="subbottom">
+                      
+                          <!-- inicio dados do cliente -->
+                          <h5 id="dadoscliente">Dados do Cliente</h5>
+                      
+                          <p>{{current_user.nome}} {{current_user.sobrenome}}</p>
+                          <p>{{current_user.celular}}</p>
+                          <!-- fim dados do cliente -->
+                      
+                      
+                          <!-- inicio endereço de entrega preenchimento automatico e calcular taxa -->
+                      
+                          <h5 id="endereco_entrega">Endereço de Entrega</h5>
+                      
+                          <p id="rua">{{current_user.rua}}</p>
+                          <p>{{current_user.bairro}}, {{current_user.cidade}} - {{current_user.estado}}</p>
+                          <p>{{current_user.cep}}</p>
+                      
+                          <!-- inicio da funcao para calcular distancia automaticamente -->
+                      
+                          <!-- comentei pois não haveria necessidade da mesma -->
+                      
+                          <!--
+                          {% if current_user.is_authenticated %}
+                          <script>
+                              document.addEventListener("DOMContentLoaded", function(){
+                              calculardistancia();
+                              })
+                          </script>
+                          {% endif %}
+                          -->
+                      
+                          <!-- fim da funcao para calcular distancia automaticamente -->
+                      
+                          <!-- <p id="resultado"></p> -->
+                      
+                          <a id="linkatualizarcadastro"
+                              href="{{url_for('atualizar_cadastro')}}">
+                              Alterar endereço
+                          </a>
+                      
+                          <!-- fim endereço de entrega preenchimento automatico e calcular taxa -->
+                      
+                          <!--
+                          <label for="address">Complemento:</label>
+                          <input id="addresscomplemento"
+                                  type="text"
+                                  placeholder="bl. e apt. caso necessário"
+                                  value="{{current_user.complemento}}">
+                      
+                          <p id="address-warn">
+                              O endereço está vazio!!
+                          </p>
+                          -->
+                      
+                          </div>
+                          <!-- fim dos dados do cliente + endereço de entrega -->
+                           <button type="button" id="voltar-step2">Voltar</button>
+                           <button type="button" id="continar-step2">Continuar</button>
+
+
+                      </div>
+                      <!-- fim passo 2 -->
+
+                       
+                      <!-- inicio passo 3 -->
+                      <div id="step-resumo" style="display: none;">
+                            <!-- inicio valores finais -->
+                        
+                            <div id="resumo">
+                        
+                            <h5>Resumo</h5>
+                        
+                            <!-- valor da taxa de entrega -->
+                        
+                            <p id="resultado"></p>
+                        
+                            <p id="taxaentrega">
+                                Taxa de entrega:
+                                <span>0.00</span>
+                            </p>
+                        
+                            <!-- valor do pedido -->
+                        
+                            <p id="valortotal">
+                                Total:
+                                <span>0.00</span>
+                            </p>
+                        
+                            </div>
+                            <!-- fim valores finais -->
+                             <button type="button" id="voltar-step3">Voltar</button>
+                             <button type="button" id="Finalizar">Finalizar pedido</button>
+
+                      </div>
+                      <!-- fim passo 3 -->
                 
                     <!-- E deu certo, Glória a Deus -->
-                
-                    <!-- inicio dados do cliente e endereço -->
-                    <div id="subbottom">
-                
-                    <!-- inicio dados do cliente -->
-                    <h5 id="dadoscliente">Dados do Cliente</h5>
-                
-                    <p>{{current_user.nome}} {{current_user.sobrenome}}</p>
-                    <p>{{current_user.celular}}</p>
-                    <!-- fim dados do cliente -->
-                
-                
-                    <!-- inicio endereço de entrega preenchimento automatico e calcular taxa -->
-                
-                    <h5 id="endereco_entrega">Endereço de Entrega</h5>
-                
-                    <p id="rua">{{current_user.rua}}</p>
-                    <p>{{current_user.bairro}}, {{current_user.cidade}} - {{current_user.estado}}</p>
-                    <p>{{current_user.cep}}</p>
-                
-                    <!-- inicio da funcao para calcular distancia automaticamente -->
-                
-                    <!-- comentei pois não haveria necessidade da mesma -->
-                
-                    <!--
-                    {% if current_user.is_authenticated %}
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function(){
-                        calculardistancia();
-                        })
-                    </script>
-                    {% endif %}
-                    -->
-                
-                    <!-- fim da funcao para calcular distancia automaticamente -->
-                
-                    <!-- <p id="resultado"></p> -->
-                
-                    <a id="linkatualizarcadastro"
-                        href="{{url_for('atualizar_cadastro')}}">
-                        Alterar endereço
-                    </a>
-                
-                    <!-- fim endereço de entrega preenchimento automatico e calcular taxa -->
-                
-                    <!--
-                    <label for="address">Complemento:</label>
-                    <input id="addresscomplemento"
-                            type="text"
-                            placeholder="bl. e apt. caso necessário"
-                            value="{{current_user.complemento}}">
-                
-                    <p id="address-warn">
-                        O endereço está vazio!!
-                    </p>
-                    -->
-                
-                    </div>
-                    <!-- fim do subbottom -->
-                
-                
-                    <!-- inicio valores finais -->
-                
-                    <div id="resumo">
-                
-                    <h5>Resumo</h5>
-                
-                    <p id="subtotal">
-                        Subtotal:
-                        <span>0.00</span>
-                    </p>
-                
-                    <!-- valor da taxa de entrega -->
-                
-                    <p id="resultado"></p>
-                
-                    <p id="taxaentrega">
-                        Taxa de entrega:
-                        <span>0.00</span>
-                    </p>
-                
-                    <!-- valor do pedido -->
-                
-                    <p id="valortotal">
-                        Total:
-                        <span>0.00</span>
-                    </p>
-                
-                    </div>
-                
-                    <!-- fim valores finais -->
-                
-                
-                    <!-- inicio lista de produtos -->
-                    <div id="submeucarrinho">
-                
-                    <!-- produtos add pelo java script -->
-                
-                    </div>
-                    <!-- fim lista de produtos -->
-                
                 
                     <!-- inicio rodape do carrinho -->
                     <div id="rodape-carrinho">
                 
                         <div id="fimpedido">
                     
-                            <button id="Fechar" type="button">
+                            <!-- <button id="Fechar" type="button">
                             Fechar
-                            </button>
+                            </button> -->
                     
-                            <button id="Finalizar" type="button">
+                            <!-- <button id="Finalizar" type="button">
                             Finalizar
-                            </button>
+                            </button> -->
+                            <!-- button continuar step1 -->
+                             <!-- <button id="step-inical-carrinho" type="button">Continuar</button> -->
                     
                         </div>
                     
@@ -473,7 +502,6 @@
                     -->
                 
                 </div>
-            
             </div>
             
             <!-- fim do modal(dentro do meu carrinho) -->
@@ -502,5 +530,15 @@
         </button>
       </footer>
       <!-- fim do veja meu carrinho -->
+           <script src="{{ url_for('static', filename='js/hamburgeriacorrigida.js') }}"></script>
+            <!-- inicio steps -->
+            <script src="{{url_for('static', filename='js/steps_carrinhos.js')}}"></script>
+            <!-- fim steps -->
+           <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+           <!-- inicio acesso calcular distancia -->
+           <script src="{{url_for('static', filename='js/calcular_distancia.js')}}"></script> 
+           <!-- fim acesso calcular distancia -->
+
     </body>
 </html>

@@ -2,13 +2,13 @@
 const Menugeral = document.getElementById("menu");
 const Meucarrinho = document.getElementById("meucarrinho");
 const RodapeFinalizarPedido = document.getElementById("rodape-carrinho")
-const dentrodocarrinho = document.getElementById("dentrodocarrinho");
+// const dentrodocarrinho = document.getElementById("dentrodocarrinho");
 const submeucarrinho = document.getElementById("submeucarrinho");
 const subdentrodocarrinho = document.getElementById("subdentrodocarrinho");
 const Valortotal = document.getElementById("valortotal");
 const Subtotal = document.getElementById("subtotal")
 const TotalTaxa =  document.getElementById("taxaentrega")
-const Fechar = document.getElementById("Fechar");
+// const Fechar = document.getElementById("fecharstep1");
 const Finalizar = document.getElementById("Finalizar");
 const Quantidadecarinho = document.getElementById("quantidadecarinho");
 const Addressinput = document.getElementById("address");
@@ -19,7 +19,6 @@ const Addresswarninputnome = document.getElementById("address-warnnome");
 const Addresswarninputphone = document.getElementById("address-warnphone");
 const itensaddnocarrinho = document.getElementById("itensadd");
 const subbottom = document.getElementById("subbottom");
-const Out = document.getElementById("out");
 const Finish = document.getElementById("Finish");
 
 let listcar = [];
@@ -27,15 +26,15 @@ let listcar = [];
 // subbottom.style.display = "none";
 
 // Eventos para abrir/fechar carrinho
-Meucarrinho.addEventListener("click", () => {
-  dentrodocarrinho.style.display = "block";
-});
+// Meucarrinho.addEventListener("click", () => {
+//   dentrodocarrinho.style.display = "block";
+// });
 
-dentrodocarrinho.addEventListener("click", (event) => {
-  if (event.target === dentrodocarrinho || event.target === Fechar) {
-    dentrodocarrinho.style.display = "none";
-  }
-});
+// dentrodocarrinho.addEventListener("click", (event) => {
+//   if (event.target === dentrodocarrinho || event.target === Fechar) {
+//     dentrodocarrinho.style.display = "none";
+//   }
+// });
 // isto não existe mais, pois estou removendo o bug de ter dois carrinho.
 // subbottom.addEventListener("click", (event) => {
 //   if (event.target === Fechar) {

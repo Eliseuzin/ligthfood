@@ -49,7 +49,7 @@ dentrodocarrinho.addEventListener("click", (event) =>{
 // fim voltar step2 para step1
 
 // inicio continuar step2 para step3
-const ContinuarStep2 = document.getElementById("continar-step2");
+const ContinuarStep2 = document.getElementById("continuar-step2");
 const ResumoStep3 = document.getElementById("step-resumo");
 
 

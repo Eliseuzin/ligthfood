@@ -6,7 +6,7 @@ const RodapeFinalizarPedido = document.getElementById("rodape-carrinho")
 const submeucarrinho = document.getElementById("submeucarrinho");
 const subdentrodocarrinho = document.getElementById("subdentrodocarrinho");
 const Valortotal = document.getElementById("valortotal");
-const Subtotal = document.getElementById("subtotal")
+const Subtotal = document.getElementById("subtotal");
 const TotalTaxa =  document.getElementById("taxaentrega")
 // const Fechar = document.getElementById("fecharstep1");
 const Finalizar = document.getElementById("Finalizar");
@@ -22,25 +22,9 @@ const subbottom = document.getElementById("subbottom");
 const Finish = document.getElementById("Finish");
 
 let listcar = [];
-// isto não existe mais, pois estou removendo o bug de ter dois carrinho.
-// subbottom.style.display = "none";
-
-// Eventos para abrir/fechar carrinho
-// Meucarrinho.addEventListener("click", () => {
-//   dentrodocarrinho.style.display = "block";
-// });
-
-// dentrodocarrinho.addEventListener("click", (event) => {
-//   if (event.target === dentrodocarrinho || event.target === Fechar) {
-//     dentrodocarrinho.style.display = "none";
-//   }
-// });
-// isto não existe mais, pois estou removendo o bug de ter dois carrinho.
-// subbottom.addEventListener("click", (event) => {
-//   if (event.target === Fechar) {
-//     dentrodocarrinho.style.display = "none";
-//   }
-// });
+// isto não existe mais, pois estou removendo o bug de ter dois carrinho.\\
+// // inicio eventos para abrir/fechar carrinho mudei para steps-carrinho.js
+// fim eventos para abrir/fechar carrinho mudei para steps-carrinho.js
 
 // Adicionar item ao carrinho
 Menugeral.addEventListener("click", (event) => {

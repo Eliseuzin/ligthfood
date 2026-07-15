@@ -328,7 +328,7 @@
                       <p>Resumo</p>
                      </div>
                      <!-- inicio passo 1 -->
-                      <div id="step-carrinho">
+                    <div id="step-carrinho">
                           <!-- inicio lista de produtos -->
                           <div id="submeucarrinho">
                           <!-- produtos add pelo java script -->
@@ -408,8 +408,10 @@
                       
                           </div>
                           <!-- fim dos dados do cliente + endereço de entrega -->
-                           <button type="button" id="voltar-step2">Voltar</button>
-                           <button type="button" id="continar-step2">Continuar</button>
+                           <div id="fim-step-entrega">
+                             <button type="button" id="voltar-step2">Voltar</button>
+                             <button type="button" id="continar-step2">Continuar</button>
+                           </div>
 
 
                       </div>
@@ -427,7 +429,10 @@
                             <!-- valor da taxa de entrega -->
                         
                             <p id="resultado"></p>
-                        
+                            <p>
+                              Subtotal:
+                              <span id="subtotal-resumo">R$ 0,00</span>
+                            </p>
                             <p id="taxaentrega">
                                 Taxa de entrega:
                                 <span>0.00</span>
@@ -442,8 +447,10 @@
                         
                             </div>
                             <!-- fim valores finais -->
-                             <button type="button" id="voltar-step3">Voltar</button>
-                             <button type="button" id="Finalizar">Finalizar pedido</button>
+                             <div id="fim-step-resumo">
+                               <button type="button" id="voltar-step3">Voltar</button>
+                               <button type="button" id="Finalizar">Finalizar pedido</button>
+                             </div>
 
                       </div>
                       <!-- fim passo 3 -->

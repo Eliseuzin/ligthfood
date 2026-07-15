@@ -313,6 +313,58 @@ footer > button {
 
 /* fim do estilo step1 */
 
+/* inicio step 2 */
+#voltar-step2{
+  border-radius: 5px;
+  padding: 5px;
+  font-family: "Courier New", "Courier", "monospace";
+  background-color: rgba(192, 12, 12, 0.548);
+  color: #ffffff99;
+}
+#continar-step2{
+  border-radius: 5px;
+  padding: 5px;
+  font-family: "Courier New", "Courier", "monospace";
+  background-color: rgba(24, 104, 24, 0.616);
+  color: #ffffff99;
+}
+#fim-step-entrega{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* fim step 2 */
+
+/* inicio step3 resumo */
+#voltar-step3{
+  border-radius: 5px;
+  padding: 5px;
+  font-family: "Courier New", "Courier", "monospace";
+  background-color: rgba(192, 12, 12, 0.548);
+  color: #ffffff99;
+}
+#Finalizar{
+  border-radius: 5px;
+  padding: 5px;
+  font-family: "Courier New", "Courier", "monospace";
+  background-color: rgba(24, 104, 24, 0.616);
+  color: #ffffff99;
+}
+#fim-step-resumo{
+  display: flex;
+  justify-content: space-between;
+}
+/* fim step3 resumo */
+
+
+
+
+
+
+
+
+
+
 
 /* #error {
   text-align: center;

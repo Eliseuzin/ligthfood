@@ -18,7 +18,7 @@ const ContinuarStep1 = document.getElementById("continuar-step1");
 const StepCarrinho1 = document.getElementById("step-carrinho");
 
 
-dentrodocarrinho.addEventListener("click", () =>{
+dentrodocarrinho.addEventListener("click", (event) =>{
   if (event.target === dentrodocarrinho || event.target === ContinuarStep1){
     StepCarrinho1.style.display = "none";
   }
@@ -29,7 +29,7 @@ dentrodocarrinho.addEventListener("click", () =>{
 const StepEntrega1 = document.getElementById("step-entrega");
 
 
-dentrodocarrinho.addEventListener("click", () =>{
+dentrodocarrinho.addEventListener("click", (event) =>{
   if (event.target === dentrodocarrinho || event.target === ContinuarStep1){
     StepEntrega1.style.display = "block";
   }
@@ -40,7 +40,7 @@ dentrodocarrinho.addEventListener("click", () =>{
 const VoltarStep2 = document.getElementById("voltar-step2");
 
 
-dentrodocarrinho.addEventListener("click", () =>{
+dentrodocarrinho.addEventListener("click", (event) =>{
   if (event.target === dentrodocarrinho || event.target === VoltarStep2){
   StepEntrega1.style.display = "none";
   StepCarrinho1.style.display = "block";
@@ -53,7 +53,7 @@ const ContinuarStep2 = document.getElementById("continar-step2");
 const ResumoStep3 = document.getElementById("step-resumo");
 
 
-dentrodocarrinho.addEventListener("click", () =>{
+dentrodocarrinho.addEventListener("click", (event) =>{
   if(event.target === dentrodocarrinho || event.target === ContinuarStep2){
     StepEntrega1.style.display = "none";
     ResumoStep3.style.display = "block";
@@ -65,7 +65,7 @@ dentrodocarrinho.addEventListener("click", () =>{
 const VoltarStep3 = document.getElementById("voltar-step3");
 
 
-dentrodocarrinho.addEventListener("click", () =>{
+dentrodocarrinho.addEventListener("click", (event) =>{
   if(event.target === dentrodocarrinho || event.target === VoltarStep3){
     ResumoStep3.style.display = "none";
     StepEntrega1.style.display = "block";

@@ -185,8 +185,10 @@ footer > button {
   width: 100%;
   min-width: 320px;
   height: 100%;
+  border: solid 3px green ;
   /* display: none; */
 }
+
 
 #subdentrodocarrinho {
   color: aliceblue;
@@ -217,6 +219,14 @@ footer > button {
   justify-content: space-between;
   font-style: bold;
   /* display: none; */
+}
+
+.removeritem{
+  border-radius: 5px;
+  padding: 5px;
+  font-family: "Courier New", "Courier", "monospace";
+  background-color: rgba(192, 12, 12, 0.548);
+  color: #ffffff99;
 }
 
 #out {
@@ -321,7 +331,7 @@ footer > button {
   background-color: rgba(192, 12, 12, 0.548);
   color: #ffffff99;
 }
-#continar-step2{
+#continuar-step2{
   border-radius: 5px;
   padding: 5px;
   font-family: "Courier New", "Courier", "monospace";
@@ -339,6 +349,7 @@ footer > button {
 #voltar-step3{
   border-radius: 5px;
   padding: 5px;
+  margin-top: 5%;
   font-family: "Courier New", "Courier", "monospace";
   background-color: rgba(192, 12, 12, 0.548);
   color: #ffffff99;
@@ -346,6 +357,7 @@ footer > button {
 #Finalizar{
   border-radius: 5px;
   padding: 5px;
+  margin-top: 5%;
   font-family: "Courier New", "Courier", "monospace";
   background-color: rgba(24, 104, 24, 0.616);
   color: #ffffff99;
@@ -355,6 +367,22 @@ footer > button {
   justify-content: space-between;
 }
 /* fim step3 resumo */
+
+/* inicio do indicador de passo 1,2 e 3 */
+#steps{
+  display: flex;
+  justify-content: space-between;
+}
+
+.step{
+  background-color: #8b4747;
+  border: 2px dashed black;
+}
+.ativo{
+  background-color: green;
+  color: whitesmoke;
+}
+/* fim do indicador de passo 1,2 e 3 */
 
 
 

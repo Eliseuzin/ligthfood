@@ -1,14 +1,11 @@
 // Seletores principais do DOM
 const Menugeral = document.getElementById("menu");
-const Meucarrinho = document.getElementById("meucarrinho");
 const RodapeFinalizarPedido = document.getElementById("rodape-carrinho")
-// const dentrodocarrinho = document.getElementById("dentrodocarrinho");
 const submeucarrinho = document.getElementById("submeucarrinho");
 const subdentrodocarrinho = document.getElementById("subdentrodocarrinho");
 const Valortotal = document.getElementById("valortotal");
 const Subtotal = document.getElementById("subtotal");
 const TotalTaxa =  document.getElementById("taxaentrega")
-// const Fechar = document.getElementById("fecharstep1");
 const Finalizar = document.getElementById("Finalizar");
 const Quantidadecarinho = document.getElementById("quantidadecarinho");
 const Addressinput = document.getElementById("address");
@@ -26,7 +23,7 @@ let listcar = [];
 // // inicio eventos para abrir/fechar carrinho mudei para steps-carrinho.js
 // fim eventos para abrir/fechar carrinho mudei para steps-carrinho.js
 
-// Adicionar item ao carrinho
+// inicio adicionar item ao carrinho
 Menugeral.addEventListener("click", (event) => {
   const parentButtom = event.target.closest(".addcart");
   if (parentButtom) {
@@ -35,6 +32,10 @@ Menugeral.addEventListener("click", (event) => {
     addinmycar(name, price);
   }
 });
+// fim adicionar item ao carrinho
+
+
+// incio funcao add ao carrinho
 function addinmycar(name, price) {
   const checklistcar = listcar.find(item => item.name === name);
   if (checklistcar) {
@@ -65,8 +66,10 @@ function addinmycar(name, price) {
     console.error('Erro ao enviar item para o backend:', error);
   });
 }
+// fim funcao add ao carrinho
 
 
+// conferir depois
 fetch('/meu-carrinho')
   .then(response => {
     if (response.ok) return response.json();
@@ -165,13 +168,18 @@ function updatecarrinho() {
 }
 // fim calcular subtotal e total 
 
+
+// inicio remover item do carrinho
 submeucarrinho.addEventListener("click", (event) => {
   if (event.target.classList.contains("removeritem")) {
     const name = event.target.getAttribute("data-name");
     removeritens(name);
   }
 });
+// fim remover item do carrinho
 
+
+// inicio funcao remover itens
 function removeritens(name) {
   const index = listcar.findIndex(item => item.name === name);
   if (index !== -1) {
@@ -183,16 +191,21 @@ function removeritens(name) {
     EsperarDistancia()
   }
 }
+// fim funcao remover itens
 
-// Verifica se a loja está aberta
+
+// inicio verifica se a loja está aberta
 function verificarOpen() {
   const data = new Date();
   // const hora = data.getHours();
   const hora=20;
   return hora >= 16 && hora < 24;
 }
+// fim verifica se a loja está aberta
 
-// Estiliza o span de horário com base no funcionamento
+
+
+// inicio estilizar o span de horário com base no funcionamento
 const spanhorario = document.getElementById("horario");
 if (spanhorario) {
   if (verificarOpen()) {
@@ -203,7 +216,10 @@ if (spanhorario) {
     spanhorario.style.color = "antiquewhite";
   }
 }
+//  fim estilizar o span de horário com base no funcionamento
 
+
+// inicio finalizar pedido
 document.addEventListener("DOMContentLoaded", function () {
   const statusDiv = document.getElementById("status");
   const usuarioLogado = statusDiv.dataset.usuarioLogado === "true";
@@ -365,8 +381,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+// fim finalizar pedido
 
-// Botão "Pagar Pedido" com integração ao Flask
+
+//inicio botão "Pagar Pedido" com integração ao Flask
 const botaoPagamento = document.getElementById("pagarPedido");
 if (botaoPagamento) {
   botaoPagamento.addEventListener("click", function () {
@@ -404,3 +422,4 @@ if (botaoPagamento) {
     });
   });
 }
+// fim botão "Pagar Pedido" com integração ao Flask

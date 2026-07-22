@@ -1,28 +1,24 @@
 //inicio eventos para abrir/fechar carrinho
+const Meucarrinho = document.getElementById("meucarrinho");
 const dentrodocarrinho = document.getElementById("dentrodocarrinho");
 const FecharStep1 = document.getElementById("fecharstep1");
 // document.querySelector(".ativo").classList.remove("ativo");
 
-Meucarrinho.addEventListener("click", () => {
+
+// inicio abrir meu carrinho
+Meucarrinho.addEventListener("click", (event) => {
   dentrodocarrinho.style.display = "block";
 });
+// fim abrir meu carrinho
 
-// Inicio fechar carrinho com click fora dele
-dentrodocarrinho.addEventListener("click", (event) =>{
-  dentrodocarrinho.style.display = "none";
-})
-// fim fechar carrinho com click fora dele
 
-// dentrodocarrinho.addEventListener("click", (event) => {
-//   if (event.target === dentrodocarrinho || event.target === FecharStep1) {
-//     dentrodocarrinho.style.display = "none";
-//   }
-// });
-FecharStep1.addEventListener("click", (event)=>{
-  dentrodocarrinho.style.display = "none"
-})
-
-// fim eventos para abrir/fechar carrinho
+// Inicio eventos para abrir/fechar carrinho e com click fora dele
+dentrodocarrinho.addEventListener("click", (event) => {
+  if (event.target === dentrodocarrinho || event.target === FecharStep1) {
+    dentrodocarrinho.style.display = "none";
+  }
+});
+// fim eventos para abrir/fechar carrinho e com click fora dele
 
 // inicio continuar passo 1 para o passso 2
 const ContinuarStep1 = document.getElementById("continuar-step1");

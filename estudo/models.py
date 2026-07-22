@@ -123,16 +123,37 @@ from flask_sqlalchemy import SQLAlchemy
 
 class Pedidos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    
+    # inicio cliente
     cliente_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
     cliente_nome = db.Column(db.String(100))
-    telefone = db.Column(db.String(20))
-    itens = db.Column(db.Text)
-    total = db.Column(db.Float)
-    status = db.Column(db.String(50))
-
+    celular = db.Column(db.String(20))
+    # fim cliente
+    
+    # inicio loja
     loja_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    # fim loja
+
+    # inicio pedidos
+    itens = db.Column(db.Text) #aqui colocaremos os dados do pedido
+    subtotal = db.Column(db.Float)
+    taxa_entrega = db.Column(db.Float)
+    total = db.Column(db.Float)
+    # fim pedidos
+
+    # inicio entrega
+    distancia = db.Column(db.Integer) #em metros
+    tempo_entre_distancia = db.Column(db.String(30), default="Recebido")
+    # fim entrega
+
+    # inicio status do pedido
+    status = db.Column(db.String(50))
+    # fim status do pedido
+
+    # inicio data do recebimento do pedido
+    data_recebido = db.Column(db.DateTime, default=datetime.utcnow)
+    # fim data do recebimento do pedido
+
+
 
 
 

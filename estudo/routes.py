@@ -548,3 +548,12 @@ def rota_calcular_distancia():
 
 #  fim criar rotas para calcular distância usando a API do Google Maps
 
+
+
+# inicio salvar o pedido no banco pedidos, para futuras consultas
+# @app.route("/finalizar_pedido/", methods=['POST'])
+# @login_required
+
+# def finalizar_pedido():
+#     dados= request.get_json()
+# fim salvar o pedido no banco pedidos, para futuras consultas

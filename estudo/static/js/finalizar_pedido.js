@@ -1,28 +1,40 @@
-const Finalizar_pedido= document.getElementById("Finalizar");
-// const Itens_pedidos=document.
-const Subtotal_pedidos= document.querySelector("subtotal");
-const Taxa_pedidos=document.querySelector("taxaentrega");
-const Total_pedidos=document.querySelector("valortotal");
+const Finalizar_pedido= document.getElementById("Finalizar")
 
-Finalizar_pedido.addEventListener("click",(event) =>{
-  const pedidos={
-    itens:Quantidadecarinho,
-    subtotal:Subtotal_pedidos,
-    taxa_de_entrega: Taxa_pedidos,
-    total: Total_pedidos
+Finalizar_pedido.addEventListener("click", async () => {
 
-  };
-  console.log(pedidos);
+    await calculardistancia();
+    updatecarrinho();
 
-  fetch("finalizar_pedido",{
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json"
-    },
-    body:JSON.stringify(pedidos)
-  });
+    const resposta = await fetch("/finalizar_pedido", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(window.Pedido)
+    });
+
+    const dados = await resposta.json();
+    
+    if(dados.successo){
+      limparPedido();
+      alert("Pedido realizado com sucesso")
+    }
 });
 
+function limparPedido() {
+
+    listcar = [];
+
+    window.Pedido = {
+        subtotal: 0,
+        taxa: 0,
+        total: 0,
+        distancia: 0,
+        itens: []
+    };
+
+    updatecarrinho();
+}
 
 
 

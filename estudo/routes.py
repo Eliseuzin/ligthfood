@@ -21,6 +21,8 @@ from estudo.utils import verificar_token
 from werkzeug.security import generate_password_hash
 from estudo.forms import AtualizarUsuarioForm, AtualizarLojistaForm  # ou ajuste o nome conforme necessário
 from estudo.forms import UserForm, StoreForm
+# para importa json, usod de dumps
+import json
 
 #rotas pedidos
 # from flask import Pedidos
@@ -486,47 +488,47 @@ def status_pedidos():
 
 from flask import request, jsonify
 
-@app.route('/finalizar_pedido', methods=['POST'])
-@login_required
-def finalizar_pedido():
+# @app.route('/finalizar_pedido', methods=['POST'])
+# @login_required
+# def finalizar_pedido():
 
-    dados = request.get_json()
+#     dados = request.get_json()
 
-    nome = dados.get('nome')
-    telefone = dados.get('telefone')
-    total = float(dados.get('total'))
-    carrinho = dados.get('carrinho')
+#     nome = dados.get('nome')
+#     telefone = dados.get('telefone')
+#     total = float(dados.get('total'))
+#     carrinho = dados.get('carrinho')
 
-    novo_pedido = Pedidos(
-        cliente_id=current_user.id,
-        cliente_nome=nome,
-        telefone=telefone,
-        itens=str(carrinho),
-        total=total,
-        status='pendente',
-        loja_id=1
-    )
+#     novo_pedido = Pedidos(
+#         cliente_id=current_user.id,
+#         cliente_nome=nome,
+#         telefone=telefone,
+#         itens=str(carrinho),
+#         total=total,
+#         status='pendente',
+#         loja_id=1
+#     )
 
-    db.session.add(novo_pedido)
-    db.session.commit()
+#     db.session.add(novo_pedido)
+#     db.session.commit()
 
-    # 🔥 monta mensagem IGUAL você já fazia
-    itens_formatados = ""
-    for item in carrinho:
-        itens_formatados += f"{item['name']} (x{item['quantity']}) - R${item['price']} | "
+#     # 🔥 monta mensagem IGUAL você já fazia
+#     itens_formatados = ""
+#     for item in carrinho:
+#         itens_formatados += f"{item['name']} (x{item['quantity']}) - R${item['price']} | "
 
-    mensagem = f"""
-Pedido novo 🍔
-{itens_formatados}
+#     mensagem = f"""
+# Pedido novo 🍔
+# {itens_formatados}
 
-Total: R$ {total}
-Nome: {nome}
-pytCelular: {telefone}
-    """
+# Total: R$ {total}
+# Nome: {nome}
+# pytCelular: {telefone}
+#     """
 
-    link = f"https://wa.me/31994174975?text={mensagem}"
+#     link = f"https://wa.me/31994174975?text={mensagem}"
 
-    return jsonify({"link": link})
+#     return jsonify({"link": link})
 
 #fim para lojistas terem acesso aos status de pedidos
 
@@ -551,9 +553,37 @@ def rota_calcular_distancia():
 
 
 # inicio salvar o pedido no banco pedidos, para futuras consultas
-# @app.route("/finalizar_pedido/", methods=['POST'])
-# @login_required
+# from flask import request, jsonify
 
-# def finalizar_pedido():
-#     dados= request.get_json()
+@app.route("/finalizar_pedido", methods=["POST"])
+@login_required
+def finalizar_pedido():
+
+    dados = request.get_json()
+
+    novo_pedido = Pedidos(
+        cliente_id=current_user.id,
+        cliente_nome=current_user.nome,
+        celular=current_user.celular,
+
+        subtotal=dados["subtotal"],
+        taxa_entrega=dados["taxa"],
+        total=dados["total"],
+        distancia=dados["distancia"],
+
+        itens=json.dumps(dados["itens"]),
+
+        status="Recebido",
+
+        loja_id= 1
+    )
+
+    db.session.add(novo_pedido)
+    db.session.commit()
+
+    return jsonify({
+        "sucesso": True,
+        "mensagem": "Pedido salvo com sucesso!"
+    })
+    
 # fim salvar o pedido no banco pedidos, para futuras consultas

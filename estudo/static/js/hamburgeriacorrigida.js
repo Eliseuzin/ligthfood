@@ -20,6 +20,18 @@ const Finish = document.getElementById("Finish");
 
 let listcar = [];
 // isto não existe mais, pois estou removendo o bug de ter dois carrinho.\\
+
+// inicio gravar variavesi para compartilhamento, criando o agrupamento pensando em futuros aumentos
+window.Pedido = {
+    subtotal: 0,
+    taxa: 0,
+    total: 0,
+    distancia: 0,
+    itens: []
+};
+// fim 
+
+
 // // inicio eventos para abrir/fechar carrinho mudei para steps-carrinho.js
 // fim eventos para abrir/fechar carrinho mudei para steps-carrinho.js
 
@@ -99,11 +111,12 @@ async function EsperarDistancia() {
 
 
 // inicio calcular subtotal e total 
+
 function updatecarrinho() {
-  submeucarrinho.innerHTML = "";
   let subtotal = 0;
   let total= 0;
   let taxa=0;
+  submeucarrinho.innerHTML = "";
 
   listcar.forEach((item) => {
     const incluirosprodutos = document.createElement("div");
@@ -165,7 +178,15 @@ function updatecarrinho() {
 
 
   Quantidadecarinho.textContent = listcar.length;
+  // precisei de ajuda para usar em outro arquivo
+  window.Pedido.subtotal = Number(subtotal.toFixed(2));
+  window.Pedido.taxa = Number(taxa.toFixed(2));
+  window.Pedido.total = Number(total.toFixed(2));
+  window.Pedido.distancia = distancia_taxa_metros;
+  window.Pedido.itens = [...listcar]; // cria uma cópia do carrinho
 }
+
+
 // fim calcular subtotal e total 
 
 

@@ -1,11 +1,27 @@
-const Finalizar_pedido= document.getElementById("Finalizar")
+// inicio finalizar pedido
+const Finalizar_pedido = document.getElementById("Finalizar");
 
-Finalizar_pedido.addEventListener("click", async () => {
+
+Finalizar_pedido.addEventListener("click", async ()=>{
+    if(listcar.length===0){
+    Toastify({
+        text: "⚠️ Desculpe, voce precisa adicionar um produto!",
+        duration: 4000,
+        close: true,
+        gravity: "top",
+        position: "left",
+        stopOnFocus: true,
+        style: {
+        background: "linear-gradient(to right,rgba(255, 0, 0, 0.13),rgb(255, 0, 0))"
+        },
+    }).showToast();
+    return;
+    };
 
     await calculardistancia();
     updatecarrinho();
 
-    const resposta = await fetch("/finalizar_pedido", {
+    const resposta = await fetch("/finalizar_pedido",{
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -14,17 +30,32 @@ Finalizar_pedido.addEventListener("click", async () => {
     });
 
     const dados = await resposta.json();
-    
-    if(dados.successo){
-      limparPedido();
-      alert("Pedido realizado com sucesso")
-    }
+
+    if(dados.sucesso){
+        limparPedidos();
+        dentrodocarrinho.style.display= "none"
+
+        // alert("Pedido realizado com sucesso.");
+        Toastify({
+            text: "Pedido, finalizado com sucesso.",
+            duration: 7000,
+            close: true,
+            gravity: "top",
+            position: "center",
+            stopOnFocus: true,
+            style: {
+            background: "linear-gradient(to right,rgba(3, 37, 16, 0.13),rgb(3, 53, 30))"
+            },
+        }).showToast();
+        return;
+    };
 });
+// fim finalizar pedido
 
-function limparPedido() {
 
+// inicio limpar carrinho
+function limparPedidos(){
     listcar = [];
-
     window.Pedido = {
         subtotal: 0,
         taxa: 0,
@@ -32,37 +63,12 @@ function limparPedido() {
         distancia: 0,
         itens: []
     };
-
+    console.log(listcar)
+    console.log(window.Pedido)
+    
     updatecarrinho();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+};
+// fim limpar carrinho
 
 
 // document.addEventListener("DOMContentLoaded", function () {

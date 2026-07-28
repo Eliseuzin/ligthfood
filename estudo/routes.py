@@ -555,27 +555,31 @@ def rota_calcular_distancia():
 # inicio salvar o pedido no banco pedidos, para futuras consultas
 # from flask import request, jsonify
 
-@app.route("/finalizar_pedido", methods=["POST"])
+
+@app.route("/finalizar_pedido", methods= ["POST"])
 @login_required
 def finalizar_pedido():
+
 
     dados = request.get_json()
 
     novo_pedido = Pedidos(
-        cliente_id=current_user.id,
-        cliente_nome=current_user.nome,
-        celular=current_user.celular,
+        cliente_id = current_user.id,
+        cliente_nome = current_user.nome,
+        celular = current_user.celular,
 
-        subtotal=dados["subtotal"],
-        taxa_entrega=dados["taxa"],
-        total=dados["total"],
-        distancia=dados["distancia"],
 
-        itens=json.dumps(dados["itens"]),
+        subtotal = dados["subtotal"],
+        taxa_entrega = dados["taxa"],
+        total = dados["total"],
+        distancia = dados["distancia"],
 
-        status="Recebido",
+        itens = json.dumps(dados["itens"]),
 
-        loja_id= 1
+
+        status = "Recebido",
+
+        loja_id = 1
     )
 
     db.session.add(novo_pedido)
@@ -585,5 +589,5 @@ def finalizar_pedido():
         "sucesso": True,
         "mensagem": "Pedido salvo com sucesso!"
     })
-    
+print("Deu tudo certo")
 # fim salvar o pedido no banco pedidos, para futuras consultas

@@ -1,4 +1,6 @@
 # Ambiente virtual
+# uso de / no final significa Ignore uma pasta chamada venv.
+
 venv/
 .venv/
 
@@ -12,9 +14,11 @@ __pycache__/
 *.pyd
 
 #informacoes da nossa evolucao
+# quando escrevemos apenas o nome, significa, ignore um arquivo chamado exatamente DESENVOLVIMENTO.md.
 DESENVOLVIMENTO.md
 
 # Banco de dados SQLite
+# uso de * é para ignora qualquer sequencia de caracteres .db or .sqlite3
 *.db
 *.sqlite3
 

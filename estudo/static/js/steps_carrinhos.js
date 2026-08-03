@@ -33,6 +33,22 @@ const StepEntrega1 = document.getElementById("step-entrega");
 // })
 
 ContinuarStep1.addEventListener("click", (event) =>{
+  if(listcar.length===0){
+    Toastify({
+      text: "⚠️ Desculpe, voce precisa adicionar um produto!",
+      duration: 7000,
+      close: true,
+      gravity:"top",
+      position: "center",
+      stopOnFocus: true,
+      style:{
+        background: "red"
+      }
+    }).showToast();
+    dentrodocarrinho.style.display = "none";
+    return;
+  };
+
   StepCarrinho1.style.display = "none";
    //inicio mostrar passso 2
   //  StepEntrega1.classList.add(".ativo");
@@ -55,16 +71,48 @@ VoltarStep2.addEventListener("click", (event) =>{
 });
 // fim voltar step2 para step1
 
+
+
 // inicio continuar step2 para step3
 const ContinuarStep2 = document.getElementById("continuar-step2");
 const ResumoStep3 = document.getElementById("step-resumo");
 
+const NomeEntrega = document.getElementById("nome");
+const SobreNomeEntrega = document.getElementById("sobrenome");
+const CelularEntrega = document.getElementById("celular");
+const RuaEntrega = document.getElementById("rua");
+const BairroEntrega = document.getElementById("bairro");
+const CidadeEntrega = document.getElementById("cidade");
+const EstadoEntrega = document.getElementById("estado");
+const CepEntrega = document.getElementById("cep");
+
 
 ContinuarStep2.addEventListener("click", (event) =>{
+
+
+  // if(!NomeEntrega.value.trim()||!SobreNomeEntrega.value.trim()||!CelularEntrega.value.trim()||
+  //    !RuaEntrega.value.trim()||!BairroEntrega.value.trim()||!CidadeEntrega.value.trim()||
+  //    !EstadoEntrega.value.trim()||!CepEntrega.value.trim()){
+  //      Toastify({
+  //     text: "⚠️ Desculpe, voce precisa preencer todos os campos!",
+  //     duration: 7000,
+  //     close: true,
+  //     gravity:"top",
+  //     position: "left",
+  //     stopOnFocus: true,
+  //     style:{
+  //       background: "red"
+  //     }
+  //   }).showToast();
+  //   return;
+  // }
+
   StepEntrega1.style.display = "none";
   ResumoStep3.style.display = "block";
 });
 // fim continuar step2 para step3
+
+
 
 // inicio voltar step3 para step2
 const VoltarStep3 = document.getElementById("voltar-step3");
@@ -75,6 +123,7 @@ VoltarStep3.addEventListener("click", (event) =>{
   StepEntrega1.style.display = "block"
 })
 // fim voltar step3 para step2
+
 
 // inicio mostrar subtotal
 const SubTotalResumo = document.getElementById("subtotal-resumo");

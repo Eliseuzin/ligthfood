@@ -560,8 +560,35 @@ def rota_calcular_distancia():
 @login_required
 def finalizar_pedido():
 
-
     dados = request.get_json()
+
+    # inicio verificar se o carrinho está vazio
+    if not dados.get("itens"):
+        return jsonify({
+            "sucesso": False,
+            "mensagem":"O carrinho está vazio. Adicione produtos antes de finalizar o pedido,."
+        }),400
+    # fim verificar se o carrinho está vazio
+
+
+    # inicio verificar se o usuário tem todos os dados necessários para finalizar o pedido
+    if(
+        not current_user.nome or
+        not current_user.sobrenome or
+        not current_user.celular or
+        not current_user.email or
+        not current_user.rua or
+        not current_user.bairro or
+        not current_user.cidade or
+        not current_user.estado or
+        not current_user.cep
+    ):
+        return jsonify({
+            "sucesso": False,
+            "mensagem": "Por favor, complete seu cadastro antes de finalizar o pedido."
+        }),400
+    # fim verificar se o usuário tem todos os dados necessários para finalizar o pedido
+
 
     novo_pedido = Pedidos(
         cliente_id = current_user.id,
@@ -584,10 +611,11 @@ def finalizar_pedido():
 
     db.session.add(novo_pedido)
     db.session.commit()
+    print("Deu tudo certo, pedido salvo no banco de dados.")
 
     return jsonify({
         "sucesso": True,
         "mensagem": "Pedido salvo com sucesso!"
     })
-print("Deu tudo certo")
+
 # fim salvar o pedido no banco pedidos, para futuras consultas

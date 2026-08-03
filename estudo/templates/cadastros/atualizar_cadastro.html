@@ -10,7 +10,6 @@
       <!-- inicio calcular distancia -->
       <script src="{{url_for('static', filename='js/calcular_distancia.js')}}"></script>
       <!-- fim calcular distancia -->
-       
 <!-- {% include 'back_inicio_cadastro.html' %} -->
 <div class="container mt-5" style="max-width: 500px;">
   <h3>Atualizar Cadastro</h3>
@@ -19,17 +18,17 @@
 
     <div class="col-md-6 mb-4">
       {{ form.nome.label(class="form-label") }}
-      {{ form.nome(class="form-control") }}
+      {{ form.nome(class="form-control", id="nome") }}
     </div>
 
     <div class="col-md-6 mb-4">
       {{ form.sobrenome.label(class="form-label") }}
-      {{ form.sobrenome(class="form-control") }}
+      {{ form.sobrenome(class="form-control", id="sobrenome") }}
     </div>
 
     <div class="col-md-6 mb-4">
       {{ form.email.label(class="form-label") }}
-      {{ form.email(class="form-control") }}
+      {{ form.email(class="form-control", id="email") }}
     </div>
      <!-- .... o erro estã aqui..... -->
       <div class="col-md-6 mb-4">
@@ -62,7 +61,7 @@
 
     <div class="col-md-6 mb-4">
       {{form.celular.label(class="form-label")}}
-      {{form.celular(class="form-control")}}
+      {{form.celular(class="form-control", id="celular")}}
     </div>
 
     <div class="col-md-6 mb-4">

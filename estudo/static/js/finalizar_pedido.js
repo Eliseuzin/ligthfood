@@ -1,5 +1,6 @@
 // inicio finalizar pedido
 const Finalizar_pedido = document.getElementById("Finalizar");
+const ContinuarStep1CarVazio = document.getElementById("continuar-step1");
 
 
 Finalizar_pedido.addEventListener("click", async ()=>{
@@ -17,7 +18,6 @@ Finalizar_pedido.addEventListener("click", async ()=>{
     }).showToast();
     return;
     };
-
     await calculardistancia();
     updatecarrinho();
 

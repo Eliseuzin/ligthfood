@@ -357,18 +357,25 @@
                           <!-- inicio dados do cliente -->
                           <h5 id="dadoscliente">Dados do Cliente</h5>
                       
-                          <p>{{current_user.nome}} {{current_user.sobrenome}}</p>
-                          <p>{{current_user.celular}}</p>
+                          <p>
+                            <span id="nome">{{current_user.nome}}</span> 
+                            <span id="sobrenome">{{current_user.sobrenome}}</span>
+                          </p>
+                          <p id="celular">{{current_user.celular}}</p>
                           <!-- fim dados do cliente -->
                       
                       
                           <!-- inicio endereço de entrega preenchimento automatico e calcular taxa -->
                       
                           <h5 id="endereco_entrega">Endereço de Entrega</h5>
-                      
                           <p id="rua">{{current_user.rua}}</p>
-                          <p>{{current_user.bairro}}, {{current_user.cidade}} - {{current_user.estado}}</p>
-                          <p>{{current_user.cep}}</p>
+
+                          <p id="endereco_cliente">
+                            <span id="bairro">{{current_user.bairro}}</span>, 
+                            <span id="cidade">{{current_user.cidade}}</span> - 
+                            <span id="estado">{{current_user.estado}}</span>
+                          </p>
+                          <p id="cep">{{current_user.cep}}</p>
                       
                           <!-- inicio da funcao para calcular distancia automaticamente -->
                       

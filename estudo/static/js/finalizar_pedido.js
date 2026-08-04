@@ -18,6 +18,27 @@ Finalizar_pedido.addEventListener("click", async ()=>{
     }).showToast();
     return;
     };
+
+    //inicio verificar se todos os passo estão completos para habilitar o botão de finalizar pedido
+    if(!NomeEntrega||!SobreNomeEntrega||!CelularEntrega||
+        !RuaEntrega||!BairroEntrega||!CidadeEntrega||
+        !EstadoEntrega||!CepEntrega){
+        Toastify({
+        text: "⚠️ Desculpe, voce precisa preencer todos os campos!",
+        duration: 7000,
+        close: true,
+        gravity:"top",
+        position: "left",
+        stopOnFocus: true,
+        style:{
+            background: "red"
+        }
+        }).showToast();
+        return;
+    }
+    // fim verificar se todos os passo estão completos para habilitar o botão de finalizar pedido
+
+
     await calculardistancia();
     updatecarrinho();
 
@@ -34,6 +55,9 @@ Finalizar_pedido.addEventListener("click", async ()=>{
     if(dados.sucesso){
         limparPedidos();
         dentrodocarrinho.style.display= "none"
+        ResumoStep3.style.display = "none";
+        StepCarrinho1.style.display = "block";
+
 
         // alert("Pedido realizado com sucesso.");
         Toastify({
@@ -44,7 +68,7 @@ Finalizar_pedido.addEventListener("click", async ()=>{
             position: "center",
             stopOnFocus: true,
             style: {
-            background: "linear-gradient(to right,rgba(3, 37, 16, 0.13),rgb(3, 53, 30))"
+            background: "green"
             },
         }).showToast();
         return;
@@ -69,6 +93,11 @@ function limparPedidos(){
     updatecarrinho();
 };
 // fim limpar carrinho
+
+
+
+
+
 
 
 // document.addEventListener("DOMContentLoaded", function () {

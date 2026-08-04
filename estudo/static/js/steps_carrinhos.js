@@ -77,35 +77,36 @@ VoltarStep2.addEventListener("click", (event) =>{
 const ContinuarStep2 = document.getElementById("continuar-step2");
 const ResumoStep3 = document.getElementById("step-resumo");
 
-const NomeEntrega = document.getElementById("nome");
-const SobreNomeEntrega = document.getElementById("sobrenome");
-const CelularEntrega = document.getElementById("celular");
-const RuaEntrega = document.getElementById("rua");
-const BairroEntrega = document.getElementById("bairro");
-const CidadeEntrega = document.getElementById("cidade");
-const EstadoEntrega = document.getElementById("estado");
-const CepEntrega = document.getElementById("cep");
+const NomeEntrega = document.getElementById("nome").textContent.trim();
+const SobreNomeEntrega = document.getElementById("sobrenome").textContent.trim();
+const CelularEntrega = document.getElementById("celular").textContent.trim();
+const RuaEntrega = document.getElementById("rua").textContent.trim();
+const BairroEntrega = document.getElementById("bairro").textContent.trim();
+const CidadeEntrega = document.getElementById("cidade").textContent.trim();
+const EstadoEntrega = document.getElementById("estado").textContent.trim();
+const CepEntrega = document.getElementById("cep").textContent.trim();
 
 
 ContinuarStep2.addEventListener("click", (event) =>{
 
 
-  // if(!NomeEntrega.value.trim()||!SobreNomeEntrega.value.trim()||!CelularEntrega.value.trim()||
-  //    !RuaEntrega.value.trim()||!BairroEntrega.value.trim()||!CidadeEntrega.value.trim()||
-  //    !EstadoEntrega.value.trim()||!CepEntrega.value.trim()){
-  //      Toastify({
-  //     text: "⚠️ Desculpe, voce precisa preencer todos os campos!",
-  //     duration: 7000,
-  //     close: true,
-  //     gravity:"top",
-  //     position: "left",
-  //     stopOnFocus: true,
-  //     style:{
-  //       background: "red"
-  //     }
-  //   }).showToast();
-  //   return;
-  // }
+
+  if(!NomeEntrega||!SobreNomeEntrega||!CelularEntrega||
+     !RuaEntrega||!BairroEntrega||!CidadeEntrega||
+     !EstadoEntrega||!CepEntrega){
+       Toastify({
+      text: "⚠️ Desculpe, voce precisa preencer todos os campos!",
+      duration: 7000,
+      close: true,
+      gravity:"top",
+      position: "left",
+      stopOnFocus: true,
+      style:{
+        background: "red"
+      }
+    }).showToast();
+    return;
+  }
 
   StepEntrega1.style.display = "none";
   ResumoStep3.style.display = "block";

@@ -166,3 +166,13 @@ class Pedidos(db.Model):
 # flask db upgrade
 
 #apagar banco del database.db
+
+# apagar valores dentro do banco de dados
+# flask shell
+# Pedidos.query.count() conferir antes de apagar
+# Pedidos.query.all()
+# from estudo import db
+# from estudo.models import Pedidos
+
+# Pedidos.query.delete()
+# db.session.commit()

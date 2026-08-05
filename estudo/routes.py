@@ -472,14 +472,6 @@ def produto_excluir(id):
 from estudo.models import Pedidos
 
 #inicio das rotas para lojista terem acesso aos status de pedidos
-@app.route('/pedidos')
-@login_required
-def status_pedidos():
-    pedidos= Pedidos.query.filter_by(
-        loja_id=current_user.id
-    ).order_by(Pedidos.id.desc()).all()
-
-    return render_template('pedidos/status_pedidos.html', pedidos=pedidos)
 
 #fim das rotas para lojista terem acesso aos status de pedidos
 
@@ -619,3 +611,15 @@ def finalizar_pedido():
     })
 
 # fim salvar o pedido no banco pedidos, para futuras consultas
+
+# inicio criar rotas para o cliente ver seus pedidos
+@app.route("/meus_pedidos", methods=["GET"])
+@login_required
+def meus_pedidos():
+    pedidos = Pedidos.query.filter_by(cliente_id=current_user.id).order_by(Pedidos.id.desc()).all()
+
+
+    for pedido in pedidos:
+        pedido.itens = json.loads(pedido.itens)  # Converte a string JSON de volta para uma lista/dicionário
+    return render_template("pedidos/meus_pedidos.html", pedidos=pedidos)
+#fim criar rotas para o cliente ver seus pedidos

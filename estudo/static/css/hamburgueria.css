@@ -15,6 +15,8 @@ header {
   padding: 80px;
 }
 
+
+
 main {
   background-color: #ffffff30;
   border-radius: 5px;
@@ -68,6 +70,14 @@ main > div {
   text-align: center;
   text-shadow: 2px 2px 2px rgba(255, 0, 0, 0.308);
   font-size: 30px;
+}
+
+#div_pedidos{
+  margin: 5px;
+}
+
+#logout{
+  margin: 5px;
 }
 
 /* body {

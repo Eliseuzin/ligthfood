@@ -23,18 +23,22 @@
          <div class="row">
            <div class="col-12 d-flex justify-content-end flex-wrap align-items-center">
             <!-- inicio button para meus pedidos etc. -->
-             <a href="" class="btn btn-info">Meus pedidos -
-              <i class="fa-solid fa-utensils"></i>
-             </a>
+             <div id="div_pedidos">
+               <a href="{{url_for('meus_pedidos')}}" class="btn btn-secondary">Meus pedidos
+                <i class="fa-solid fa-utensils">
+                </i></a>
+             </div>
             <!-- fim  button para meus pedidos etc. -->
 
 
               <!-- Botões de login/logout -->
             {% if current_user.is_authenticated %}
               <!-- Usuário logado: mostrar saudação e botão de logout -->
-              <span class="btn btn-primary me-2">Bem-vindo, {{ current_user.nome }}!</span>
-               <a class="btn btn-primary" href="{{url_for('atualizar_cadastro')}}">Perfil</a>
-              <a href="{{ url_for('logout') }}" class="btn btn-danger">Sair</a>
+              <div>
+                <span class="btn btn-primary me-2">Bem-vindo, {{ current_user.nome }}!</span>
+                 <a class="btn btn-primary" href="{{url_for('atualizar_cadastro')}}">Perfil</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-danger" id="logout">Sair</a>
+              </div>
             {% else %}
               <!-- Usuário não logado: mostrar botão de login -->
                <a id="btn-login" href="{{ url_for('login') }}" class="btn btn-success">Login</a>

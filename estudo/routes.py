@@ -613,13 +613,13 @@ def finalizar_pedido():
 # fim salvar o pedido no banco pedidos, para futuras consultas
 
 # inicio criar rotas para o cliente ver seus pedidos
-@app.route("/meus_pedidos", methods=["GET"])
+@app.route("/historico", methods=["GET"])
 @login_required
-def meus_pedidos():
+def historico():
     pedidos = Pedidos.query.filter_by(cliente_id=current_user.id).order_by(Pedidos.id.desc()).all()
 
 
     for pedido in pedidos:
         pedido.itens = json.loads(pedido.itens)  # Converte a string JSON de volta para uma lista/dicionário
-    return render_template("pedidos/meus_pedidos.html", pedidos=pedidos)
+    return render_template("pedidos/historico.html", pedidos=pedidos)
 #fim criar rotas para o cliente ver seus pedidos

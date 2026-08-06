@@ -612,14 +612,40 @@ def finalizar_pedido():
 
 # fim salvar o pedido no banco pedidos, para futuras consultas
 
-# inicio criar rotas para o cliente ver seus pedidos
-@app.route("/historico", methods=["GET"])
-@login_required
-def historico():
-    pedidos = Pedidos.query.filter_by(cliente_id=current_user.id).order_by(Pedidos.id.desc()).all()
+# inicio def para buscando dados do pedido específico e convertendo.
+def buscar_pedidos_clientes(cliente_id):
+    pedidos = Pedidos.query.filter_by(cliente_id=cliente_id).order_by(Pedidos.id.desc()).all()
 
 
     for pedido in pedidos:
-        pedido.itens = json.loads(pedido.itens)  # Converte a string JSON de volta para uma lista/dicionário
+        pedido.itens = json.loads(pedido.itens) # Converte a string JSON de volta para uma lista/dicionário
+
+
+    return pedidos
+# fim def para buscando dados do pedido específico e convertendo.
+
+
+# inicio rota para o cliente ver detalhes de um pedido específico
+@app.route("/meus_pedidos", methods=["GET"])
+@login_required
+def meus_pedidos():
+
+    pedidos = buscar_pedidos_clientes(current_user.id)
+
+    return render_template("pedidos/meus_pedidos.html", pedidos=pedidos)
+# fim rota para o cliente ver detalhes de um pedido específico
+
+
+
+
+# inicio rota para o cliente ver seus pedidos
+@app.route("/historico", methods=["GET"])
+@login_required
+def historico():
+
+    pedidos = buscar_pedidos_clientes(current_user.id)
+
     return render_template("pedidos/historico.html", pedidos=pedidos)
-#fim criar rotas para o cliente ver seus pedidos
+#fim rota para o cliente ver seus pedidos
+
+

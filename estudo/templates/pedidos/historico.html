@@ -3,7 +3,15 @@
 {% block base %}
 
 <div>
-    <h4>Histórico</h4>
+    <div class="container-fluid py-2">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end flex-wrap align-items-center">
+                <a href="{{ url_for('meus_pedidos') }}" class="btn btn-info" style="margin: 4px;">Ver meus pedidos</a>
+                <a href="{{ url_for('index') }}" class="btn btn-info" style="margin: 4px;">Início</a>
+            </div>
+        </div>
+    </div>
+    <h4>Histórico:</h4>
     
     {% if pedidos %}
         {% for pedido in pedidos %}

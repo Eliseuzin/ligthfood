@@ -1,0 +1,24 @@
+{%extends "base.html"%}
+{%block base%}
+<div>
+    <div class="container-fluid py-2">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end flex-wrap align-items-center">
+                <a href="{{url_for('historico')}}" class="btn btn-info" style="margin: 4px;">Ver histórico completo</a>
+                <a href="{{url_for('index')}}" class="btn btn-info" style="margin: 4px;">Início</a>
+            </div>
+        </div>
+    </div>
+    <h4>Meus pedidos:</h4>
+    {%if pedidos%}
+
+        {%for pedido in pedidos%}
+        <p><strong>Pedido:</strong>{{pedido.id}}</p>
+        <p><strong>Data:</strong>{{pedido.data_recebido.strftime("%d/%m/%Y %H:%M")}}</p>
+        <p><strong>Status:</strong>{{pedido.status}}</p>
+        {%endfor%}
+    {%else%}
+        <p>Nenhum pedido encontrado.</p>
+    {%endif%}
+</div>
+{%endblock%}
